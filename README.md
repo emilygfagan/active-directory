@@ -117,6 +117,7 @@ After the OS was installed:
   - Made sure DC01 was online so the join process could complete
 
 ![Ethernet Properties](images/1.gif)
+![Domain Changes](images/2.gif)
 
 ### Installing Print Services
 
@@ -127,8 +128,6 @@ Logged in with a **domain user with administrator rights**, and then:
 3. Installed the **Print and Document Services** role
 4. Selected **Print Server** under role services
 
----
-
 ### Creating and Sharing the Printer
 
 After the Print Server role was installed:
@@ -137,6 +136,8 @@ After the Print Server role was installed:
 2. Went to:  
    `Print Servers > PrintSrv01 > Printers`  
 3. Right-clicked **Printers > Add Printer**
+
+![SharedPrinter Properties](images/3.gif)
 
 Learned about the different port types:
 - **LPT1**: Parallel port — good for simple or virtual printers
