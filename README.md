@@ -54,3 +54,19 @@ This project was created to:
 ## About Fagan Systems (Fictional Company)
 
 Fagan Systems is a mid-sized IT consulting firm with several internal departments such as IT Support, HR, Sales, and Finance. The Active Directory environment reflects this organizational structure and supports centralized management of users, devices, and resources across a simulated domain: `fagan.local`.     
+
+## Domain Setup      
+**Domain Name:** `fagan.local`  
+**Domain Controller:** `DC01`  
+**Operating System:** Windows Server 2022 (Standard Evaluation)  
+**IP Address:** `192.168.50.10` (Static)  
+**Functional Level:** Windows Server 2016  
+
+**Roles & Features Installed:**
+- Active Directory Domain Services (AD DS)
+- DNS Server
+- Remote Desktop Services (enabled)
+
+**Domain Promotion:**  
+- Domain promoted using Server Manager  
+- AD DS and DNS installed prior to promotion
