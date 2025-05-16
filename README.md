@@ -11,6 +11,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - [Domain Setup](#domain-setup)
 - [Windows 10 Client Setup](#windows-10-client-setup)
 - [Print Server Setup](#print-server-setup)
+- [Organizational Unit (OU) Structure](#organizational-unit-structure)
 - [Group Policy Objects (GPOs)](#group-policy-objects-gpos)
 - [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)
 
@@ -176,3 +177,44 @@ Learned about the different port types:
   gpresult /r
 
 ![gpresult](images/5.gif)
+
+## Organizational Unit Structure
+
+The OU structure in this Active Directory environment reflects the internal layout of Fagan Systems and follows best practices for administrative control and delegation.
+
+This setup separates users and computers by department for easier Group Policy application and role-based access management. It also includes dedicated OUs for shared infrastructure and centralized group management.
+
+### OU Hierarchy
+fagan.local
+├── Headquarters
+│ ├── Finance
+│ │ ├── Computers
+│ │ └── Users
+│ ├── HR
+│ │ ├── Computers
+│ │ └── Users
+│ ├── IT
+│ │ ├── Computers
+│ │ └── Users
+│ └── Sales
+│ ├── Computers
+│ └── Users
+├── Workstations
+├── Servers
+└── Groups
+
+### Purpose of Each OU
+- **Departmental OUs (Finance, HR, IT, Sales):**  
+  Separated into `Computers` and `Users` to allow precise GPO targeting and management by department.
+
+- **Workstations:**  
+  Houses shared or non-department-specific computers (e.g., front desk or breakroom machines).
+
+- **Servers:**  
+  Contains infrastructure machines like `DC01` and `PrintSrv01`.
+
+- **Groups:**  
+  A centralized location for security groups used for access control and GPO targeting (e.g., `AllEmployees`, `HRDriveUsers`, `ITAdmins`).
+
+### OU Structure – Visual Reference
+![OU Structure](images/6.gif)
