@@ -1,5 +1,4 @@
-# Active Directory Lab Project — Fagan Systems
-
+# Active Directory Lab Project — Fagan Systems      
 ## Overview
 
 This project simulates the planning, setup, and administration of a professional Active Directory (AD) environment for a fictional IT consulting company called **Fagan Systems**. It demonstrates core skills in systems administration, domain configuration, organizational unit (OU) design, user and group management, and access control via Group Policy.
