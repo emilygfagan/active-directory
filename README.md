@@ -6,8 +6,6 @@ This project simulates the planning, setup, and administration of a professional
 
 This lab environment was created as a portfolio piece to showcase technical skills relevant to roles in systems administration, IT support, and network infrastructure.
 
----
-
 ## Objectives
 
 - Design and implement a fully functional Active Directory domain environment.
@@ -16,20 +14,16 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - Join Windows clients to the domain and assign appropriate access.
 - Apply Group Policy Objects (GPOs) to enforce settings and standardize configurations across the domain.
 
----
-
 ## Lessons Learned & Skills Demonstrated
 
-✅ Designed and deployed a professional Active Directory domain  
-✅ Created and applied a structured, business-aligned OU hierarchy  
-✅ Managed domain users, workstations, and security groups  
-✅ Configured file share and printer access with permission-based controls  
-✅ Successfully joined client machines to the domain  
-✅ Applied and verified Group Policy Objects (GPOs) for system behavior, security settings, and user restrictions  
-✅ Implemented mapped network drives and default printers through GPO  
-✅ Used tools like `gpresult`, `RSOP.msc`, and Event Viewer for troubleshooting  
-
----
+- Designed and deployed a professional Active Directory domain
+- Created and applied a structured, business-aligned OU hierarchy
+- Managed domain users, workstations, and security groups
+- Configured file share and printer access with permission-based controls
+- Successfully joined client machines to the domain
+- Applied and verified Group Policy Objects (GPOs) for system behavior, security settings, and user restrictions
+- Implemented mapped network drives and default printers through GPO
+- Used tools like `gpresult`, `RSOP.msc`, and Event Viewer for troubleshooting  
 
 ## Technologies Used
 
@@ -40,8 +34,6 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - DNS and DHCP services (simulated lab environment)
 - PowerShell and Command Prompt for administrative tasks
 
----
-
 ## Project Goals
 
 This project was created to:
@@ -51,19 +43,6 @@ This project was created to:
 - Demonstrate readiness for roles in IT support, help desk, or systems administration
 - Serve as a strong portfolio project for job interviews and internships
 
----
-
-## Next Steps
-
-- Add Print Server Role and integrate printers with GPO deployment  
-- Implement logon scripts and startup policies  
-- Create a backup and disaster recovery test plan for the domain  
-- Add documentation and user guides for system administrators
-
----
-
 ## About Fagan Systems (Fictional Company)
 
-Fagan Systems is a mid-sized IT consulting firm with several internal departments such as IT Support, HR, Sales, and Finance. The Active Directory environment reflects this organizational structure and supports centralized management of users, devices, and resources across a simulated domain: `fagan.local`.
-
----
+Fagan Systems is a mid-sized IT consulting firm with several internal departments such as IT Support, HR, Sales, and Finance. The Active Directory environment reflects this organizational structure and supports centralized management of users, devices, and resources across a simulated domain: `fagan.local`.     
