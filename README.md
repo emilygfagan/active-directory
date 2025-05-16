@@ -185,7 +185,23 @@ The OU structure in this Active Directory environment reflects the internal layo
 This setup separates users and computers by department for easier Group Policy application and role-based access management. It also includes dedicated OUs for shared infrastructure and centralized group management.
 
 ### OU Hierarchy
-<pre> <code> ``` fagan.local ├── Headquarters │ ├── Finance │ │ ├── Computers │ │ └── Users │ ├── HR │ │ ├── Computers │ │ └── Users │ ├── IT │ │ ├── Computers │ │ └── Users │ └── Sales │ ├── Computers │ └── Users ├── Workstations ├── Servers └── Groups ``` </code> </pre>     
+fagan.local     
+├── Headquarters      
+│ ├── Finance      
+│ │ ├── Computers      
+│ │ └── Users      
+│ ├── HR      
+│ │ ├── Computers      
+│ │ └── Users      
+│ ├── IT       
+│ │ ├── Computers       
+│ │ └── Users       
+│ └── Sales       
+│ ├── Computers       
+│ └── Users       
+├── Workstations       
+├── Servers       
+└── Groups        
 
 ### Purpose of Each OU
 - **Departmental OUs (Finance, HR, IT, Sales):**  
