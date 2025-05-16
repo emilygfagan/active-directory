@@ -145,14 +145,12 @@ Learned about the different port types:
 - **COM**: Legacy serial ports — not used in modern setups
 - **TS001**: Terminal Services ports — used in Remote Desktop scenarios
 
-➡️ **I selected `LPT1`** since I didn’t need physical printing, just a shared, testable printer.
+**I selected `LPT1`** since I didn’t need physical printing, just a shared, testable printer.
 
 4. Named the printer **SharedPrinter**
 5. Used the **Generic / Text Only** driver (required to complete setup without real hardware)
 6. On the **Sharing tab**, enabled sharing with the share name: `SharedPrinter`
 7. On the **Security tab**, removed `Everyone` and added the **AllEmployees** group to control access
-
----
 
 ### Mapping the Printer via Group Policy
 
@@ -167,7 +165,7 @@ Learned about the different port types:
    - On the **Common tab**, enabled **Item-level targeting**
      - Targeted the group: `AllEmployees`
 
----
+![Printers & Scanners](images/4.gif)
 
 ### Testing the Shared Printer
 
@@ -176,3 +174,5 @@ Learned about the different port types:
 - Opened **Command Prompt** and ran:
   ```bash
   gpresult /r
+
+![gpresult](images/5.gif)
