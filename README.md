@@ -85,3 +85,93 @@ Fagan Systems is a mid-sized IT consulting firm with several internal department
 - Verified correct access based on group membership and applied Group Policy Objects
 
 ## Print Server Setup
+### Why I Used a Dedicated Print Server
+
+The first decision I had to make was whether to use my domain controller (DC01) as the print server or to create a dedicated one. While using the domain controller might work in a small lab, I chose to set up a **dedicated print server** for the following reasons:
+
+- **Domain controllers should only run domain services.** Mixing in printing services adds unnecessary complexity and risk in a real-world setup.
+- **Security matters.** I didn’t want to expose my domain controller to the risks associated with print services.
+- **Resiliency.** If the print server crashes, I don’t want it to interfere with logins, DNS, or GPOs.
+- **Best practice.** Keeping roles separate is a clean and professional approach, even in a lab.
+
+### Creating the Dedicated Print Server
+
+I created a new virtual machine called `PrintSrv01` using minimal resources:
+
+- **Startup memory:** 1024 MB (1 GB), dynamic
+- **Hard disk:** 60 GB
+- **Connected to:** `EmiLabSwitch`
+- **OS:** Windows Server 2022 (Standard Evaluation, Desktop Experience)
+
+After the OS was installed:
+- I set the local administrator password
+- Renamed the machine to `PrintSrv01` (important to do before joining a domain)
+
+### Network Configuration
+
+- Opened **Network and Internet Settings**
+- Went to Ethernet > Properties > Internet Protocol Version 4 (TCP/IPv4)
+- Selected “Use the following IP address” and set a static IP
+- **Joined the domain:** `fagan.local`
+  - Used **System Properties** to switch from `WORKGROUP` to domain
+  - Made sure DC01 was online so the join process could complete
+
+![Ethernet Properties](images/1.gif)
+
+### Installing Print Services
+
+Logged in with a **domain user with administrator rights**, and then:
+
+1. Opened **Server Manager**
+2. Went to **Manage > Add Roles and Features**
+3. Installed the **Print and Document Services** role
+4. Selected **Print Server** under role services
+
+---
+
+### Creating and Sharing the Printer
+
+After the Print Server role was installed:
+
+1. Opened **Print Management** (`Windows + R > printmanagement.msc`)
+2. Went to:  
+   `Print Servers > PrintSrv01 > Printers`  
+3. Right-clicked **Printers > Add Printer**
+
+Learned about the different port types:
+- **LPT1**: Parallel port — good for simple or virtual printers
+- **FILE**: Sends output to a file — good for testing
+- **COM**: Legacy serial ports — not used in modern setups
+- **TS001**: Terminal Services ports — used in Remote Desktop scenarios
+
+➡️ **I selected `LPT1`** since I didn’t need physical printing, just a shared, testable printer.
+
+4. Named the printer **SharedPrinter**
+5. Used the **Generic / Text Only** driver (required to complete setup without real hardware)
+6. On the **Sharing tab**, enabled sharing with the share name: `SharedPrinter`
+7. On the **Security tab**, removed `Everyone` and added the **AllEmployees** group to control access
+
+---
+
+### Mapping the Printer via Group Policy
+
+1. Opened **Group Policy Management**
+2. Created a new GPO in the `Headquarters` OU named `MapSharedPrinter`
+3. Edited the GPO:
+   - **User Configuration > Control Panel Settings > Printers**
+   - Added a **new Shared Printer**
+     - **Action:** Create  
+     - **Share path:** `\\PrintSrv01\SharedPrinter`  
+     - **Set as default printer**
+   - On the **Common tab**, enabled **Item-level targeting**
+     - Targeted the group: `AllEmployees`
+
+---
+
+### Testing the Shared Printer
+
+- Logged into the domain-joined client computer `DESKTOP-1` as `mtaylor`
+- Went to **Printers & Scanners** in Settings and confirmed `SharedPrinter` was visible
+- Opened **Command Prompt** and ran:
+  ```bash
+  gpresult /r
