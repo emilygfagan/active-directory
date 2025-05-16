@@ -70,3 +70,18 @@ Fagan Systems is a mid-sized IT consulting firm with several internal department
 **Domain Promotion:**  
 - Domain promoted using Server Manager  
 - AD DS and DNS installed prior to promotion
+
+## Windows 10 Client Setup
+
+**Client Name:** `DESKTOP-1`  
+**Operating System:** Windows 10 Pro  
+**IP Address:** `192.168.50.11`  
+**DNS Server:** `192.168.50.10` (DC01)  
+**Joined Domain:** `fagan.local`
+
+**Login Test:**  
+- Successfully logged into domain using:  
+  `FAGAN\mtaylor`  
+- Verified correct access based on group membership and applied Group Policy Objects
+
+## Print Server Setup
