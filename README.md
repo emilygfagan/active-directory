@@ -214,7 +214,7 @@ fagan.local
   Contains infrastructure machines like `DC01` and `PrintSrv01`.
 
 - **Groups:**  
-  A centralized location for security groups used for access control and GPO targeting (e.g., `AllEmployees`, `HRDriveUsers`, `ITAdmins`).
+  A centralized location for security groups used for access control and GPO targeting (e.g., `AllEmployees`, `HRConfidential`, `ITAdmins`).
 
 ### OU Structure – Visual Reference
 ![OU Structure](images/6.gif)
