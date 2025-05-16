@@ -1,7 +1,9 @@
-# Active Directory Lab Project — Fagan Systems 
+# Active Directory Lab Project — Fagan Systems      
+This project simulates the planning, setup, and administration of a professional Active Directory (AD) environment for a fictional IT consulting company called **Fagan Systems**. It demonstrates core skills in systems administration, domain configuration, organizational unit (OU) design, user and group management, and access control via Group Policy.
+
+This lab environment was created as a portfolio piece to showcase technical skills relevant to roles in systems administration, IT support, and network infrastructure.
 
 ## Table of Contents
-- [Overview](#overview)
 - [Objectives](#objectives)
 - [Lessons Learned & Skills Demonstrated](#lessons-learned--skills-demonstrated)
 - [Technologies Used](#technologies-used)
@@ -11,12 +13,6 @@
 - [Print Server Setup](#print-server-setup)
 - [Group Policy Objects (GPOs)](#group-policy-objects-gpos)
 - [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)
-
-## Overview
-
-This project simulates the planning, setup, and administration of a professional Active Directory (AD) environment for a fictional IT consulting company called **Fagan Systems**. It demonstrates core skills in systems administration, domain configuration, organizational unit (OU) design, user and group management, and access control via Group Policy.
-
-This lab environment was created as a portfolio piece to showcase technical skills relevant to roles in systems administration, IT support, and network infrastructure.
 
 ## Objectives
 
