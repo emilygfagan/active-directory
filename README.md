@@ -300,6 +300,6 @@ A Group Policy Object named `Map HR Drive` was linked to the **HR Users OU**.
 - **Item-level targeting** limits the drive to members of the `HRConfidential` group
 - Ensures confidentiality and improves user experience
   
-*Map `\\DC01\HRConfidential` to `H:` drive*
-![HRDrive](images/17.gif)     
+*Map `\\DC01\HRConfidential` to `H:` drive*     
+![HRDrive](images/17.gif)       
 
