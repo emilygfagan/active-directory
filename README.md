@@ -253,7 +253,9 @@ fagan.local
 - A **global security group** that includes all domain users across departments.  
 - Used for assigning organization-wide permissions, like shared printer access, default drives, and standard desktop settings via Group Policy.
 
+
 ## Access Control and Shared Folders
+
 ### HRConfidential Shared Folder     
 
 **Shared Folder:** `\\DC01\HRConfidential`  
