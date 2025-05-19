@@ -353,5 +353,5 @@ To see what policies are currently applied to a computer or user:
 `gpresult /r`     
 
 *To see full details, run Command Prompt as Administrator:*          
-- `Windows + R`, type `cmd`, then press `Ctrl + Shift + Enter`       
+`Windows + R`, type `cmd`, then press `Ctrl + Shift + Enter`       
 This shows which GPOs are applied to the computer and the user (Resultant Set of Policy).    
