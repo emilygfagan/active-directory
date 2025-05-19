@@ -13,7 +13,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - [Print Server Setup](#print-server-setup)
 - [Organizational Unit (OU) Structure](#organizational-unit-structure)
 - [Users](#users)
-- [Security Groups](security-groups)
+- [Security Groups](https://github.com/emilygfagan/active-directory?tab=readme-ov-file#security-groups)
 - [Access Control and Shared Folders](https://github.com/emilygfagan/active-directory/blob/main/README.md#access-control-and-shared-folders)
 - [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)
 
