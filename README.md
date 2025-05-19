@@ -33,6 +33,8 @@ This lab environment was created as a portfolio piece to showcase technical skil
   - [What is Group Policy?](#what-is-group-policy)
   - [Viewing Applied GPOs on a Client](#viewing-applied-gpos-on-a-client)
 - [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)
+---
+
 
 ## Objectives
 
@@ -41,6 +43,8 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - Create and manage user accounts, computers, and security groups.
 - Join Windows clients to the domain and assign appropriate access.
 - Apply Group Policy Objects (GPOs) to enforce settings and standardize configurations across the domain.
+---
+
 
 ## Lessons Learned & Skills Demonstrated
 
@@ -52,6 +56,8 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - Applied and verified Group Policy Objects (GPOs) for system behavior, security settings, and user restrictions
 - Implemented mapped network drives and default printers through GPO
 - Used tools like `gpresult`, `RSOP.msc`, and Event Viewer for troubleshooting  
+---
+
 
 ## Technologies Used
 
@@ -61,6 +67,8 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - Group Policy Management Console (GPMC)
 - DNS and DHCP services (simulated lab environment)
 - PowerShell and Command Prompt for administrative tasks
+---
+
 
 ## Project Goals
 
@@ -70,10 +78,14 @@ This project was created to:
 - Practice administering and troubleshooting Windows-based networks
 - Demonstrate readiness for roles in IT support, help desk, or systems administration
 - Serve as a strong portfolio project for job interviews and internships
+---
+
 
 ## About Fagan Systems (Fictional Company)
 
 Fagan Systems is a mid-sized IT consulting firm with several internal departments such as IT Support, HR, Sales, and Finance. The Active Directory environment reflects this organizational structure and supports centralized management of users, devices, and resources across a simulated domain: `fagan.local`.     
+---
+
 
 ## Domain Setup      
 **Domain Name:** `fagan.local`  
@@ -90,6 +102,8 @@ Fagan Systems is a mid-sized IT consulting firm with several internal department
 **Domain Promotion:**  
 - Domain promoted using Server Manager  
 - AD DS and DNS installed prior to promotion
+---
+
 
 ## Windows 10 Client Setup
 
@@ -103,8 +117,11 @@ Fagan Systems is a mid-sized IT consulting firm with several internal department
 - Successfully logged into domain using:  
   `FAGAN\mtaylor`  
 - Verified correct access based on group membership and applied Group Policy Objects
+---
 
-## Print Server Setup
+
+## Print Server Setup     
+
 ### Why I Used a Dedicated Print Server
 
 The first decision I had to make was whether to use my domain controller (DC01) as the print server or to create a dedicated one. While using the domain controller might work in a small lab, I chose to set up a **dedicated print server** for the following reasons:
@@ -113,6 +130,8 @@ The first decision I had to make was whether to use my domain controller (DC01) 
 - **Security matters.** I didn’t want to expose my domain controller to the risks associated with print services.
 - **Resiliency.** If the print server crashes, I don’t want it to interfere with logins, DNS, or GPOs.
 - **Best practice.** Keeping roles separate is a clean and professional approach, even in a lab.
+
+
 
 ### Creating the Dedicated Print Server
 
@@ -127,6 +146,8 @@ After the OS was installed:
 - I set the local administrator password
 - Renamed the machine to `PrintSrv01` (important to do before joining a domain)
 
+
+
 ### Network Configuration
 
 - Opened **Network and Internet Settings**
@@ -139,6 +160,8 @@ After the OS was installed:
 ![Ethernet Properties](images/1.gif)
 ![Domain Changes](images/2.gif)
 
+
+
 ### Installing Print Services
 
 Logged in with a **domain user with administrator rights**, and then:
@@ -147,6 +170,8 @@ Logged in with a **domain user with administrator rights**, and then:
 2. Went to **Manage > Add Roles and Features**
 3. Installed the **Print and Document Services** role
 4. Selected **Print Server** under role services
+
+
 
 ### Creating and Sharing the Printer
 
@@ -172,6 +197,8 @@ Learned about the different port types:
 6. On the **Sharing tab**, enabled sharing with the share name: `SharedPrinter`
 7. On the **Security tab**, removed `Everyone` and added the **AllEmployees** group to control access
 
+
+
 ### Mapping the Printer via Group Policy
 
 1. Opened **Group Policy Management**
@@ -187,6 +214,8 @@ Learned about the different port types:
 
 ![Printers & Scanners](images/4.gif)
 
+
+
 ### Testing the Shared Printer
 
 - Logged into the domain-joined client computer `DESKTOP-1` as `mtaylor`
@@ -195,12 +224,16 @@ Learned about the different port types:
   `gpresult /r`
 
 ![gpresult](images/5.gif)
+---
+
 
 ## Organizational Unit (OU) Structure
 
 The OU structure in this Active Directory environment reflects the internal layout of Fagan Systems and follows best practices for administrative control and delegation.
 
 This setup separates users and computers by department for easier Group Policy application and role-based access management. It also includes dedicated OUs for shared infrastructure and centralized group management.
+
+
 
 ### OU Hierarchy
 fagan.local     
@@ -221,6 +254,8 @@ fagan.local
 ├── Servers       
 └── Groups        
 
+
+
 ### Purpose of Each OU
 
 - **Departmental OUs (Finance, HR, IT, Sales):**  
@@ -235,9 +270,13 @@ fagan.local
 - **Groups:**  
   A centralized location for security groups used for access control and GPO targeting (e.g., `AllEmployees`, `HRConfidential`, `ITAdmins`).
 
+
+
 ### OU Structure – Visual Reference
 
 ![OU Structure](images/6.gif)
+---
+
 
 ## Users
 
@@ -256,6 +295,7 @@ fagan.local
 **Sales**  
 `krighteous` — Karen Righteous (Sales Representative)  
 `bmoney` — Bonnie Money (Sales Intern)
+---
 
 
 ## Security Groups
@@ -273,6 +313,7 @@ fagan.local
 **AllEmployees**  
 - A **global security group** that includes all domain users across departments.  
 - Used for assigning organization-wide permissions, like shared printer access, default drives, and standard desktop settings via Group Policy.
+---
 
 
 ## Access Control and Shared Folders
@@ -298,6 +339,7 @@ fagan.local
 ![clee](images/11.gif)     
 
 
+
 ### ITResources Shared Folder
 
 **Shared Folder:** `\\DC01\ITResources`  
@@ -310,11 +352,12 @@ fagan.local
 
 ![Advanced Security Settings](images/15.gif)
 
-** Access Testing:**
+**Access Testing:**
 
 ❌ *`clee` (Finance) denied access:*
 
 ![ITResources](images/16.gif)
+---
 
 
 ## Group Policy Objects (GPO)
@@ -328,6 +371,7 @@ A Group Policy Object named `Map HR Drive` was linked to the **HR Users OU**.
   
 *Map `\\DC01\HRConfidential` to `H:` drive*:     
 ![HRDrive](images/17.gif)       
+
 
 
 ### Set Desktop Wallpaper for All Users     
@@ -358,6 +402,7 @@ To standardize branding and restrict personalization:
 ![Unable to change desktop wallpaper](images/22.gif)     
 
 
+
 ### What is Group Policy?     
 
 Group Policy allows centralized management of users, computers, and system settings in an Active Directory environment.
@@ -369,6 +414,7 @@ GPOs help system administrators:
 - Apply company-wide settings consistently
 - Restrict access based on department or role
 - Save time by automating repetitive tasks across the domain
+
 
 
 ### Viewing Applied GPOs on a Client     
