@@ -254,7 +254,8 @@ fagan.local
 - Used for assigning organization-wide permissions, like shared printer access, default drives, and standard desktop settings via Group Policy.
 
 ## Access Control and Shared Folders
-###HRConfidential Shared Folder
+### HRConfidential Shared Folder     
+
 **Shared Folder:** `\\DC01\HRConfidential`  
 **Location:** `C:\HRConfidential` on DC01  
 **Permissions:**
@@ -267,7 +268,19 @@ fagan.local
 
 ![mtaylor](images/12.gif)     
 
+
 ❌ `clee`, `krighteous`: access denied     
 
 ![clee](images/11.gif)     
+
+### ITResources Shared Folder
+**Shared Folder:** `\\DC01\ITResources`  
+**Location:** `C:\ITResources$` (hidden folder using `$`)  
+**Permissions:**
+- Hidden from non-IT users
+- Accessible only to `ITAdmins`, `Administrators`, and `SYSTEM`
+- Inherited NTFS permissions removed, inheritance disabled
+- Securely locked down following best practices
+
+![Advanced Security Settings](images/15.gif)
 
