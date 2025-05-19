@@ -34,6 +34,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
   - [Viewing Applied GPOs on a Client](#viewing-applied-gpos-on-a-client)
 - [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)
 
+---
 
 ## Objectives
 
@@ -43,7 +44,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - Join Windows clients to the domain and assign appropriate access.
 - Apply Group Policy Objects (GPOs) to enforce settings and standardize configurations across the domain.
 
-
+---
 
 ## Lessons Learned & Skills Demonstrated
 
@@ -56,7 +57,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - Implemented mapped network drives and default printers through GPO
 - Used tools like `gpresult`, `RSOP.msc`, and Event Viewer for troubleshooting  
 
-
+---
 
 ## Technologies Used
 
