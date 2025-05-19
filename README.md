@@ -223,20 +223,20 @@ fagan.local
 
 ## Users
 **Finance**  
-- `clee` — Chad Lee (Payroll)  
-- `afagan` — Ally Fagan (Accounting)  
+`clee` — Chad Lee (Payroll)  
+`afagan` — Ally Fagan (Accounting)  
 
 **HR**  
-- `mtaylor` — Margaret Taylor (HR Manager)  
-- `jjackson` — Janet Jackson (HR Support)  
+`mtaylor` — Margaret Taylor (HR Manager)  
+`jjackson` — Janet Jackson (HR Support)  
 
 **IT**  
-- `esmith` — Emily Smith (Systems Administrator)  
-- `jabbott` — Jordan Abbott (IT Support)  
+`esmith` — Emily Smith (Systems Administrator)  
+`jabbott` — Jordan Abbott (IT Support)  
 
 **Sales**  
-- `krighteous` — Karen Righteous (Sales Representative)  
-- `bmoney` — Bonnie Money (Sales Intern)
+`krighteous` — Karen Righteous (Sales Representative)  
+`bmoney` — Bonnie Money (Sales Intern)
 
 ## Security Groups
 **HRConfidential**  
