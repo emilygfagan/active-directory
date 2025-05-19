@@ -25,6 +25,8 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - [Users](#users)
 - [Security Groups](#security-groups)
 - [Access Control and Shared Folders](#access-control-and-shared-folders)
+  - [HRConfidential Shared Folder](#hrconfidential-shared-folder)
+  - [ITResources Shared Folder](#itresources-shared-folder)
 - [Group Policy Objects](#group-policy-objects-gpo)
   - [Map Network Drive for HRConfidential](#map-network-drive-for-hrconfidential)
   - [Set Desktop Wallpaper for All Users](#set-desktop-wallpaper-for-all-users)
@@ -308,11 +310,12 @@ fagan.local
 
 ![Advanced Security Settings](images/15.gif)
 
-**Testing:**
+** Access Testing:**
 
 ❌ *`clee` (Finance) denied access:*
 
 ![ITResources](images/16.gif)
+
 
 ## Group Policy Objects (GPO)
 
