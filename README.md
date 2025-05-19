@@ -263,8 +263,8 @@ fagan.local
 - Non-HR users are denied access, even when logged into domain-joined machines
 
 **Access Testing:**
-✅ `mtaylor` (HR): access granted
-![mtaylor](images/12.gif)
-❌ `clee`, `krighteous`: access denied
-![clee](images/11.gif)
+✅ `mtaylor` (HR): access granted     
+![mtaylor](images/12.gif)     
+❌ `clee`, `krighteous`: access denied     
+![clee](images/11.gif)     
 
