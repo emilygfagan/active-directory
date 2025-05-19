@@ -11,10 +11,11 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - [Domain Setup](#domain-setup)
 - [Windows 10 Client Setup](#windows-10-client-setup)
 - [Print Server Setup](#print-server-setup)
-- [Organizational Unit (OU) Structure](#organizational-unit-structure)
+- [Organizational Unit (OU) Structure](#organizational-unit-ou-structure)
 - [Users](#users)
-- [Security Groups](https://github.com/emilygfagan/active-directory?tab=readme-ov-file#security-groups)
+- [Security Groups](#security-groups)
 - [Access Control and Shared Folders](#access-control-and-shared-folders)
+- [Group Policy Objects](#group-policy-objects-gpo)
 - [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)
 
 ## Objectives
@@ -180,7 +181,7 @@ Learned about the different port types:
 
 ![gpresult](images/5.gif)
 
-## Organizational Unit Structure
+## Organizational Unit (OU) Structure
 
 The OU structure in this Active Directory environment reflects the internal layout of Fagan Systems and follows best practices for administrative control and delegation.
 
@@ -266,12 +267,12 @@ fagan.local
 - Non-HR users are denied access, even when logged into domain-joined machines
 
 **Access Testing:**     
-✅ `mtaylor` (HR): access granted     
+✅ *`mtaylor` (HR) access granted*     
 
 ![mtaylor](images/12.gif)     
 
 
-❌ `clee`: access denied     
+❌ *`clee` (Finance) denied access:*   
 
 ![clee](images/11.gif)     
 
@@ -286,7 +287,19 @@ fagan.local
 
 ![Advanced Security Settings](images/15.gif)
 
-*Unable to access ITResources under `clee`:*
+**Testing:**
+❌ *`clee` (Finance) denied access:*
 
 ![ITResources](images/16.gif)
+
+## Group Policy Objects (GPO)
+
+### Map Network Drive for HRConfidential
+A Group Policy Object named `Map HR Drive` was linked to the **HR Users OU**.
+
+- **Item-level targeting** limits the drive to members of the `HRConfidential` group
+- Ensures confidentiality and improves user experience
+  
+*Map `\\DC01\HRConfidential` to `H:` drive*
+![HRDrive](images/17.gif)     
 
