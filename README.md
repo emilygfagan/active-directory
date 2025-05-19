@@ -12,6 +12,8 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - [Windows 10 Client Setup](#windows-10-client-setup)
 - [Print Server Setup](#print-server-setup)
 - [Organizational Unit (OU) Structure](#organizational-unit-structure)
+- [Users](#users)
+- [Security Groups](security-groups)
 - [Group Policy Objects (GPOs)](#group-policy-objects-gpos)
 - [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)
 
@@ -218,3 +220,36 @@ fagan.local
 
 ### OU Structure – Visual Reference
 ![OU Structure](images/6.gif)
+
+## Users
+**Finance**  
+- `clee` — Chad Lee (Payroll)  
+- `afagan` — Ally Fagan (Accounting)  
+
+**HR**  
+- `mtaylor` — Margaret Taylor (HR Manager)  
+- `jjackson` — Janet Jackson (HR Support)  
+
+**IT**  
+- `esmith` — Emily Smith (Systems Administrator)  
+- `jabbott` — Jordan Abbott (IT Support)  
+
+**Sales**  
+- `krighteous` — Karen Righteous (Sales Representative)  
+- `bmoney` — Bonnie Money (Sales Intern)
+
+## Security Groups
+**HRConfidential**  
+- A **global security group** for HR staff.  
+- Grants access to the HR department's confidential shared folder.  
+- Helps restrict access to sensitive personnel data to only authorized HR members.
+
+**ITAdmins**  
+- A **global security group** for IT administrators and support staff.  
+- Grants elevated permissions for managing systems and access to IT department shares and tools.  
+- Used in Group Policy for admin-level configuration rights.
+
+**AllEmployees**  
+- A **global security group** that includes all domain users across departments.  
+- Used for assigning organization-wide permissions, like shared printer access, default drives, and standard desktop settings via Group Policy.
+
