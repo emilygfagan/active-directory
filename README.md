@@ -239,6 +239,7 @@ fagan.local
 `krighteous` — Karen Righteous (Sales Representative)  
 `bmoney` — Bonnie Money (Sales Intern)
 
+
 ## Security Groups
 **HRConfidential**  
 - A **global security group** for HR staff.  
@@ -258,7 +259,6 @@ fagan.local
 ## Access Control and Shared Folders
 
 ### HRConfidential Shared Folder     
-
 **Shared Folder:** `\\DC01\HRConfidential`  
 **Location:** `C:\HRConfidential` on DC01  
 **Permissions:**
@@ -275,6 +275,7 @@ fagan.local
 ❌ *`clee` (Finance) denied access:*   
 
 ![clee](images/11.gif)     
+
 
 ### ITResources Shared Folder
 **Shared Folder:** `\\DC01\ITResources`  
@@ -303,6 +304,7 @@ A Group Policy Object named `Map HR Drive` was linked to the **HR Users OU**.
 *Map `\\DC01\HRConfidential` to `H:` drive*:     
 ![HRDrive](images/17.gif)       
 
+
 ### Set Desktop Wallpaper for All Users     
 To standardize branding and restrict personalization:
 - Created a folder on `DC01` to host the `.jpg` wallpaper
@@ -328,6 +330,7 @@ To standardize branding and restrict personalization:
 
 ![Unable to change desktop wallpaper](images/22.gif)     
 
+
 ### What is Group Policy?     
 Group Policy allows centralized management of users, computers, and system settings in an Active Directory environment.
 
@@ -339,6 +342,7 @@ GPOs help system administrators:
 - Restrict access based on department or role
 - Save time by automating repetitive tasks across the domain
 
+
 ### Viewing Applied GPOs on a Client
 To see what policies are currently applied to a computer or user:
 
@@ -348,6 +352,6 @@ To see what policies are currently applied to a computer or user:
 **Step 2:** Run:     
 `gpresult /r`     
 
-**To see full details, run Command Prompt as Administrator:**
-- `Windows + R`, type `cmd`, then press `Ctrl + Shift + Enter`
-This shows which GPOs are applied to the computer and the user (Resultant Set of Policy).
+*To see full details, run Command Prompt as Administrator:*          
+- `Windows + R`, type `cmd`, then press `Ctrl + Shift + Enter`       
+This shows which GPOs are applied to the computer and the user (Resultant Set of Policy).    
