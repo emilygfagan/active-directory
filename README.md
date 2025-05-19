@@ -347,7 +347,8 @@ To see what policies are currently applied to a computer or user:
 
 **Step 2:** Run:
 ```bash
-gpresult /r
+gpresult /r     
+```bash
 
 **To see full details, run Command Prompt as Administrator:**
 - Windows + R, type cmd, then press Ctrl + Shift + Enter
