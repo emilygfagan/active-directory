@@ -11,6 +11,10 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - [Domain Setup](#domain-setup)
 - [Windows 10 Client Setup](#windows-10-client-setup)
 - [Print Server Setup](#print-server-setup)
+  - [Why I Used a Dedicated Print Server](#why-i-used-a-dedicated-print-server)
+  - [Creating the Dedicated Print Server](#creating-the-dedicated-print-server)
+  - [Network Configuration](#network-configuration)
+  - [Installing Print Services](#installing-print-services)
 - [Organizational Unit (OU) Structure](#organizational-unit-ou-structure)
 - [Users](#users)
 - [Security Groups](#security-groups)
@@ -180,8 +184,7 @@ Learned about the different port types:
 - Logged into the domain-joined client computer `DESKTOP-1` as `mtaylor`
 - Went to **Printers & Scanners** in Settings and confirmed `SharedPrinter` was visible
 - Opened **Command Prompt** and ran:
-  ```bash
-  gpresult /r
+  `gpresult /r`
 
 ![gpresult](images/5.gif)
 
@@ -211,6 +214,7 @@ fagan.local
 └── Groups        
 
 ### Purpose of Each OU
+
 - **Departmental OUs (Finance, HR, IT, Sales):**  
   Separated into `Computers` and `Users` to allow precise GPO targeting and management by department.
 
@@ -224,9 +228,11 @@ fagan.local
   A centralized location for security groups used for access control and GPO targeting (e.g., `AllEmployees`, `HRConfidential`, `ITAdmins`).
 
 ### OU Structure – Visual Reference
+
 ![OU Structure](images/6.gif)
 
 ## Users
+
 **Finance**  
 `clee` — Chad Lee (Payroll)  
 `afagan` — Ally Fagan (Accounting)  
@@ -245,6 +251,7 @@ fagan.local
 
 
 ## Security Groups
+
 **HRConfidential**  
 - A **global security group** for HR staff.  
 - Grants access to the HR department's confidential shared folder.  
@@ -262,7 +269,8 @@ fagan.local
 
 ## Access Control and Shared Folders
 
-### HRConfidential Shared Folder     
+### HRConfidential Shared Folder    
+
 **Shared Folder:** `\\DC01\HRConfidential`  
 **Location:** `C:\HRConfidential` on DC01  
 **Permissions:**
@@ -271,6 +279,7 @@ fagan.local
 - Non-HR users are denied access, even when logged into domain-joined machines
 
 **Access Testing:**     
+
 ✅ *`mtaylor` (HR) access granted*     
 
 ![mtaylor](images/12.gif)     
@@ -282,6 +291,7 @@ fagan.local
 
 
 ### ITResources Shared Folder
+
 **Shared Folder:** `\\DC01\ITResources`  
 **Location:** `C:\ITResources$` (hidden folder using `$`)  
 **Permissions:**
@@ -293,13 +303,15 @@ fagan.local
 ![Advanced Security Settings](images/15.gif)
 
 **Testing:**
+
 ❌ *`clee` (Finance) denied access:*
 
 ![ITResources](images/16.gif)
 
 ## Group Policy Objects (GPO)
 
-### Map Network Drive for HRConfidential
+### Map Network Drive for HRConfidential     
+
 A Group Policy Object named `Map HR Drive` was linked to the **HR Users OU**.
 
 - **Item-level targeting** limits the drive to members of the `HRConfidential` group
@@ -310,6 +322,7 @@ A Group Policy Object named `Map HR Drive` was linked to the **HR Users OU**.
 
 
 ### Set Desktop Wallpaper for All Users     
+
 To standardize branding and restrict personalization:
 - Created a folder on `DC01` to host the `.jpg` wallpaper
 - GPO named `HQ Desktop Settings` created and linked to **Headquarters OU**
@@ -326,6 +339,7 @@ To standardize branding and restrict personalization:
 ![Prevent Changes](images/20.gif)
 
 **Testing with user `mtaylor`:**     
+
 ✅ *Desktop wallpaper was applied:*     
 
 ![Desktop](images/21.gif)
@@ -336,6 +350,7 @@ To standardize branding and restrict personalization:
 
 
 ### What is Group Policy?     
+
 Group Policy allows centralized management of users, computers, and system settings in an Active Directory environment.
 
 - Used to enforce security, deploy resources (like drives and printers), apply custom configurations, and automate administration.
@@ -347,7 +362,8 @@ GPOs help system administrators:
 - Save time by automating repetitive tasks across the domain
 
 
-### Viewing Applied GPOs on a Client
+### Viewing Applied GPOs on a Client     
+
 To see what policies are currently applied to a computer or user:
 
 **Step 1:** Open Command Prompt  
