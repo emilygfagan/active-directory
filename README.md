@@ -313,8 +313,28 @@ To standardize branding and restrict personalization:
 
 ![Desktop Wallpaper](images/19.gif)     
 
-Also enabled:  
-`Prevent changing desktop background` in  
-`Administrative Templates > Control Panel > Personalization`     
+- Also enabled:
+  `Prevent changing desktop background` in  
+  `Administrative Templates > Control Panel > Personalization`     
+
 ![Prevent Changes](images/20.gif)
 
+**Testing with user `mtaylor`:**
+✅ *Desktop wallpaper was applied:*     
+
+![Desktop](images/20.gif)
+
+❌ *Unable to change the wallpaper manually:*     
+
+![Unable to change desktop wallpaper](images/21.gif)     
+
+### What is Group Policy?     
+Group Policy allows centralized management of users, computers, and system settings in an Active Directory environment.
+
+- Used to enforce security, deploy resources (like drives and printers), apply custom configurations, and automate administration.
+- For example: Only HR can access `HRConfidential`, and all employees have the same default wallpaper without changing it manually.
+
+GPOs help system administrators:
+- Apply company-wide settings consistently
+- Restrict access based on department or role
+- Save time by automating repetitive tasks across the domain
