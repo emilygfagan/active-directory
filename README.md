@@ -16,6 +16,10 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - [Security Groups](#security-groups)
 - [Access Control and Shared Folders](#access-control-and-shared-folders)
 - [Group Policy Objects](#group-policy-objects-gpo)
+  - [Map Network Drive for HRConfidential](#map-network-drive-for-hrconfidential)
+  - [Set Desktop Wallpaper for All Users](#set-desktop-wallpaper-for-all-users)
+  - [What is Group Policy?](#what-is-group-policy)
+  - [Viewing Applied GPOs on a Client](#viewing-applied-gpos-on-a-client)
 - [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)
 
 ## Objectives
@@ -347,7 +351,7 @@ GPOs help system administrators:
 To see what policies are currently applied to a computer or user:
 
 **Step 1:** Open Command Prompt  
-- Press `Windows + R`, type `cmd`, press `Enter`
+Press `Windows + R`, type `cmd`, press `Enter`
 
 **Step 2:** Run:     
 `gpresult /r`     
