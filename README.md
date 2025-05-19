@@ -33,7 +33,6 @@ This lab environment was created as a portfolio piece to showcase technical skil
   - [What is Group Policy?](#what-is-group-policy)
   - [Viewing Applied GPOs on a Client](#viewing-applied-gpos-on-a-client)
 - [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)
----
 
 
 ## Objectives
@@ -43,7 +42,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - Create and manage user accounts, computers, and security groups.
 - Join Windows clients to the domain and assign appropriate access.
 - Apply Group Policy Objects (GPOs) to enforce settings and standardize configurations across the domain.
----
+
 
 
 ## Lessons Learned & Skills Demonstrated
@@ -56,7 +55,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - Applied and verified Group Policy Objects (GPOs) for system behavior, security settings, and user restrictions
 - Implemented mapped network drives and default printers through GPO
 - Used tools like `gpresult`, `RSOP.msc`, and Event Viewer for troubleshooting  
----
+
 
 
 ## Technologies Used
@@ -67,7 +66,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - Group Policy Management Console (GPMC)
 - DNS and DHCP services (simulated lab environment)
 - PowerShell and Command Prompt for administrative tasks
----
+
 
 
 ## Project Goals
@@ -78,13 +77,13 @@ This project was created to:
 - Practice administering and troubleshooting Windows-based networks
 - Demonstrate readiness for roles in IT support, help desk, or systems administration
 - Serve as a strong portfolio project for job interviews and internships
----
+
 
 
 ## About Fagan Systems (Fictional Company)
 
 Fagan Systems is a mid-sized IT consulting firm with several internal departments such as IT Support, HR, Sales, and Finance. The Active Directory environment reflects this organizational structure and supports centralized management of users, devices, and resources across a simulated domain: `fagan.local`.     
----
+
 
 
 ## Domain Setup      
@@ -102,7 +101,7 @@ Fagan Systems is a mid-sized IT consulting firm with several internal department
 **Domain Promotion:**  
 - Domain promoted using Server Manager  
 - AD DS and DNS installed prior to promotion
----
+
 
 
 ## Windows 10 Client Setup
@@ -117,7 +116,7 @@ Fagan Systems is a mid-sized IT consulting firm with several internal department
 - Successfully logged into domain using:  
   `FAGAN\mtaylor`  
 - Verified correct access based on group membership and applied Group Policy Objects
----
+
 
 
 ## Print Server Setup     
@@ -224,7 +223,7 @@ Learned about the different port types:
   `gpresult /r`
 
 ![gpresult](images/5.gif)
----
+
 
 
 ## Organizational Unit (OU) Structure
@@ -275,7 +274,7 @@ fagan.local
 ### OU Structure – Visual Reference
 
 ![OU Structure](images/6.gif)
----
+
 
 
 ## Users
@@ -295,7 +294,7 @@ fagan.local
 **Sales**  
 `krighteous` — Karen Righteous (Sales Representative)  
 `bmoney` — Bonnie Money (Sales Intern)
----
+
 
 
 ## Security Groups
@@ -313,7 +312,7 @@ fagan.local
 **AllEmployees**  
 - A **global security group** that includes all domain users across departments.  
 - Used for assigning organization-wide permissions, like shared printer access, default drives, and standard desktop settings via Group Policy.
----
+
 
 
 ## Access Control and Shared Folders
@@ -357,7 +356,7 @@ fagan.local
 ❌ *`clee` (Finance) denied access:*
 
 ![ITResources](images/16.gif)
----
+
 
 
 ## Group Policy Objects (GPO)
