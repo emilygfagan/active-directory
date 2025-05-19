@@ -319,14 +319,14 @@ To standardize branding and restrict personalization:
 
 ![Prevent Changes](images/20.gif)
 
-**Testing with user `mtaylor`:**
+**Testing with user `mtaylor`:**     
 ✅ *Desktop wallpaper was applied:*     
 
-![Desktop](images/20.gif)
+![Desktop](images/21.gif)
 
 ❌ *Unable to change the wallpaper manually:*     
 
-![Unable to change desktop wallpaper](images/21.gif)     
+![Unable to change desktop wallpaper](images/22.gif)     
 
 ### What is Group Policy?     
 Group Policy allows centralized management of users, computers, and system settings in an Active Directory environment.
@@ -338,3 +338,17 @@ GPOs help system administrators:
 - Apply company-wide settings consistently
 - Restrict access based on department or role
 - Save time by automating repetitive tasks across the domain
+
+### Viewing Applied GPOs on a Client
+To see what policies are currently applied to a computer or user:
+
+**Step 1:** Open Command Prompt  
+- Press `Windows + R`, type `cmd`, press `Enter`
+
+**Step 2:** Run:
+```bash
+gpresult /r
+
+**To see full details, run Command Prompt as Administrator:**
+- Windows + R, type cmd, then press Ctrl + Shift + Enter
+This shows which GPOs are applied to the computer and the user (Resultant Set of Policy).
