@@ -14,7 +14,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - [Organizational Unit (OU) Structure](#organizational-unit-structure)
 - [Users](#users)
 - [Security Groups](security-groups)
-- [Group Policy Objects (GPOs)](#group-policy-objects-gpos)
+- [Access Control and Shared Folders](access-control-and-shared-folders)
 - [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)
 
 ## Objectives
@@ -252,4 +252,19 @@ fagan.local
 **AllEmployees**  
 - A **global security group** that includes all domain users across departments.  
 - Used for assigning organization-wide permissions, like shared printer access, default drives, and standard desktop settings via Group Policy.
+
+## Access Control and Shared Folders
+###HRConfidential Shared Folder
+**Shared Folder:** `\\DC01\HRConfidential`  
+**Location:** `C:\HRConfidential` on DC01  
+**Permissions:**
+- Full control only for members of the `HRConfidential` security group
+- Both **share** and **NTFS permissions** configured to restrict access
+- Non-HR users are denied access, even when logged into domain-joined machines
+
+**Access Testing:**
+✅ `mtaylor` (HR): access granted
+![mtaylor](images/12.gif)
+❌ `clee`, `krighteous`: access denied
+![clee](images/11.gif)
 
