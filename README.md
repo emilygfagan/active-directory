@@ -14,7 +14,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - [Organizational Unit (OU) Structure](#organizational-unit-structure)
 - [Users](#users)
 - [Security Groups](https://github.com/emilygfagan/active-directory?tab=readme-ov-file#security-groups)
-- [Access Control and Shared Folders](https://github.com/emilygfagan/active-directory?tab=readme-ov-file#access-control-and-shared-folders)
+- [Access Control and Shared Folders](access-control-and-shared-folders)
 - [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)
 
 ## Objectives
@@ -271,7 +271,7 @@ fagan.local
 ![mtaylor](images/12.gif)     
 
 
-❌ `clee`, `krighteous`: access denied     
+❌ `clee`: access denied     
 
 ![clee](images/11.gif)     
 
@@ -285,4 +285,8 @@ fagan.local
 - Securely locked down following best practices
 
 ![Advanced Security Settings](images/15.gif)
+
+*Unable to access ITResources under `clee`:*
+
+![ITResources](images/16.gif)
 
