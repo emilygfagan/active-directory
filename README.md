@@ -300,6 +300,22 @@ A Group Policy Object named `Map HR Drive` was linked to the **HR Users OU**.
 - **Item-level targeting** limits the drive to members of the `HRConfidential` group
 - Ensures confidentiality and improves user experience
   
-*Map `\\DC01\HRConfidential` to `H:` drive*     
+*Map `\\DC01\HRConfidential` to `H:` drive*:     
 ![HRDrive](images/17.gif)       
+
+### Set Desktop Wallpaper for All Users     
+To standardize branding and restrict personalization:
+
+- Created a folder on `DC01` to host the `.jpg` wallpaper
+- GPO named `HQ Desktop Settings` created and linked to **Headquarters OU**
+- Configured via:  
+  `User Configuration > Policies > Administrative Templates > Desktop > Desktop Wallpaper`
+- Set to use the network path of the image     
+
+![Desktop Wallpaper](images/19.gif)     
+
+- Also enabled:  
+  `Prevent changing desktop background` in  
+  `Administrative Templates > Control Panel > Personalization`     
+![Prevent Changes](images/20.gif)
 
