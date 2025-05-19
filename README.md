@@ -305,7 +305,6 @@ A Group Policy Object named `Map HR Drive` was linked to the **HR Users OU**.
 
 ### Set Desktop Wallpaper for All Users     
 To standardize branding and restrict personalization:
-
 - Created a folder on `DC01` to host the `.jpg` wallpaper
 - GPO named `HQ Desktop Settings` created and linked to **Headquarters OU**
 - Configured via:  
@@ -314,8 +313,8 @@ To standardize branding and restrict personalization:
 
 ![Desktop Wallpaper](images/19.gif)     
 
-- Also enabled:  
-  `Prevent changing desktop background` in  
-  `Administrative Templates > Control Panel > Personalization`     
+Also enabled:  
+`Prevent changing desktop background` in  
+`Administrative Templates > Control Panel > Personalization`     
 ![Prevent Changes](images/20.gif)
 
