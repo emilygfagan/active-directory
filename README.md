@@ -153,11 +153,13 @@ After the OS was installed:
 - Opened **Network and Internet Settings**
 - Went to Ethernet > Properties > Internet Protocol Version 4 (TCP/IPv4)
 - Selected “Use the following IP address” and set a static IP
+
+![Ethernet Properties](images/1.gif)
+  
 - **Joined the domain:** `fagan.local`
   - Used **System Properties** to switch from `WORKGROUP` to domain
   - Made sure DC01 was online so the join process could complete
 
-![Ethernet Properties](images/1.gif)
 ![Domain Changes](images/2.gif)
 
 
