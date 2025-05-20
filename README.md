@@ -260,17 +260,13 @@ fagan.local
 
 ### Purpose of Each OU
 
-- **Departmental OUs (Finance, HR, IT, Sales):**  
-  Separated into `Computers` and `Users` to allow precise GPO targeting and management by department.
+- **Departmental OUs (Finance, HR, IT, Sales):** Separated into `Computers` and `Users` to allow precise GPO targeting and management by department.
 
-- **Workstations:**  
-  Houses shared or non-department-specific computers (e.g., front desk or breakroom machines).
+- **Workstations:** Houses shared or non-department-specific computers (e.g., front desk or breakroom machines).
 
-- **Servers:**  
-  Contains infrastructure machines like `DC01` and `PrintSrv01`.
+- **Servers:** Contains infrastructure machines like `DC01` and `PrintSrv01`.
 
-- **Groups:**  
-  A centralized location for security groups used for access control and GPO targeting (e.g., `AllEmployees`, `HRConfidential`, `ITAdmins`).
+- **Groups:** A centralized location for security groups used for access control and GPO targeting (e.g., `AllEmployees`, `HRConfidential`, `ITAdmins`).
 
 
 
