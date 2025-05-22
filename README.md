@@ -5,13 +5,18 @@ This lab environment was created as a portfolio piece to showcase technical skil
 
 ## Table of Contents
 [Objectives](#objectives)     
+
 [Lessons Learned & Skills Demonstrated](#lessons-learned--skills-demonstrated)          
+
 [Technologies Used](#technologies-used)      
+
 [Part 2: PowerShell Automation](#part-2-powershell-automation)      
 [Part 1: Active Directory Lab Setup](#part-1-active-directory-lab-setup)     
         
 [Domain Setup](#domain-setup)     
+
 [Windows 10 Client Setup](#windows-10-client-setup)     
+
 [Print Server Setup](#print-server-setup)     
 &nbsp;&nbsp;&nbsp;&nbsp;[Why I Used a Dedicated Print Server](#why-i-used-a-dedicated-print-server)     
 &nbsp;&nbsp;&nbsp;&nbsp;[Creating the Dedicated Print Server](#creating-the-dedicated-print-server)     
@@ -20,20 +25,26 @@ This lab environment was created as a portfolio piece to showcase technical skil
 &nbsp;&nbsp;&nbsp;&nbsp;[Creating and Sharing the Printer](#creating-and-sharing-the-printer)     
 &nbsp;&nbsp;&nbsp;&nbsp;[Mapping the Printer via Group Policy](#mapping-the-printer-via-group-policy)     
 &nbsp;&nbsp;&nbsp;&nbsp;[Testing the Shared Printer](#testing-the-shared-printer)      
+
 [Organizational Unit (OU) Structure](#organizational-unit-ou-structure)     
 &nbsp;&nbsp;&nbsp;&nbsp;[OU Hierarchy](#ou-hierarchy)     
 &nbsp;&nbsp;&nbsp;&nbsp;[Purpose of Each OU](#purpose-of-each-ou)     
 &nbsp;&nbsp;&nbsp;&nbsp;[OU Structure - Visual Reference](#ou-structure--visual-reference)     
+
 [Users](#users)     
+
 [Security Groups](#security-groups)     
+
 [Access Control and Shared Folders](#access-control-and-shared-folders)     
 &nbsp;&nbsp;&nbsp;&nbsp;[HRConfidential Shared Folder](#hrconfidential-shared-folder)     
 &nbsp;&nbsp;&nbsp;&nbsp;[ITResources Shared Folder](#itresources-shared-folder)     
+
 [Group Policy Objects](#group-policy-objects-gpo)     
 &nbsp;&nbsp;&nbsp;&nbsp;[Map Network Drive for HRConfidential](#map-network-drive-for-hrconfidential)     
 &nbsp;&nbsp;&nbsp;&nbsp;[Set Desktop Wallpaper for All Users](#set-desktop-wallpaper-for-all-users)     
 &nbsp;&nbsp;&nbsp;&nbsp;[What is Group Policy?](#what-is-group-policy)     
 &nbsp;&nbsp;&nbsp;&nbsp;[Viewing Applied GPOs on a Client](#viewing-applied-gpos-on-a-client)     
+
 [About Fagan Systems (Fictional Company)](#about-fagan-systems-fictional-company)     
 
 
