@@ -83,17 +83,6 @@ This lab environment was created as a portfolio piece to showcase technical skil
 
 
 
-## Part 1: Active Directory Lab Setup
-
-This project was created to:
-
-- Strengthen hands-on experience with enterprise-grade IT infrastructure
-- Practice administering and troubleshooting Windows-based networks
-- Demonstrate readiness for roles in IT support, help desk, or systems administration
-- Serve as a strong portfolio project for job interviews and internships
-
-
-
 ## Part 2: PowerShell Automation    
 After building the Active Directory lab environment, I expanded the project by scripting the user creation process with PowerShell.
 
@@ -104,6 +93,17 @@ This script automates:
 - Adding users to department-specific security groups
 
 📂[View the PowerShell script and documentation](./powershell-scripts/README.md)     
+
+
+
+## Part 1: Active Directory Lab Setup
+
+This project was created to:
+
+- Strengthen hands-on experience with enterprise-grade IT infrastructure
+- Practice administering and troubleshooting Windows-based networks
+- Demonstrate readiness for roles in IT support, help desk, or systems administration
+- Serve as a strong portfolio project for job interviews and internships
 
 
 
