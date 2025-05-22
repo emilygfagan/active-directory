@@ -92,8 +92,16 @@ User was successfully added to the `HRConfidential` GPO and the other general us
 
 ![image023](images/image023.png) ![image025](images/image025.png)     
 
-Next I wanted to make sure that the admin could review the information they inputted and confirm that it is correct before continuing with potentially incorrect information. I wanted the script to ask the user if the information was correct, and if it wasn't, provide a way to exit without entering incorrect information to AD. Here's the bit of the script that I changed and an example on a new user:      
+
+Next I wanted the script to ask the user if the information was correct, and if it wasn't, provide a way to exit without entering incorrect information to AD. Here's the bit of the script that I changed and an example on a new user:      
 
 ![image027](images/image027.png) ![image029](images/image029.png)     
+
+
+I made small improvements to my script to prevent case mismatching. I did this by adding `.ToUpper()`.     
+
+I also wanted the script to ensure that each username it generates is unique. For example, if there were two users like Bill Smith and Bob Smith, both would initially generate the same username (e.g., `bsmith`). To handle this, I added a `while` loop that checks Active Directory for existing usernames and, if a conflict is found, automatically appends a number (e.g., `bsmith2`, `bsmith3`, etc.) until a unique username is created.     
+
+![image]
 
 **Change username in AD:** `Set-ADUser -Identity oldusername -SamAccountName newusername`     
