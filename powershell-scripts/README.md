@@ -65,6 +65,44 @@ while (Get-ADUser -Filter {SamAccountName -eq $Username}) {
 
 ## Notes and Processes
 
+I started off with this simple base code to decide on the type of logic and experience I wanted to create:
+```powershell
+# NewADUser.ps1
+
+# Import AD module
+Import-Module ActiveDirectory
+
+# Prompt for input
+$FirstName = Read-Host "Enter the user's first name"
+$LastName = Read-Host "Enter the user's last name"
+$Department = Read-Host "Enter the user's department (e.g., HR, IT, Sales)"
+
+# Build username and display name
+$Username = ($FirstName.Substring(0,1) + $LastName).ToLower()
+$DisplayName = "$FirstName $LastName"
+$UPN = "$Username@fagan.local"
+
+# Set temporary password
+$Password = Read-Host "Enter a temporary password" -AsSecureString
+
+# OU Path
+$OU = "OU=Users,OU=$Department,OU=Headquarters,DC=fagan,DC=local"
+
+# Create the user
+
+New-ADUser -Name $DisplayName `
+           -GivenName $FirstName `
+           -Surname $LastName `
+           -SamAccountName $Username `
+           -UserPrincipalName $UPN `
+           -Path $OU `
+           -AccountPassword $Password `
+           -Enabled $true `
+           -ChangePasswordAtLogon $true `
+
+Write-Host "User $DisplayName ($Username) created successfully in $Department OU."
+```
+
 Ran the base script for the first time and I received an error because I was not in the correct directory. I changed my current directory to Desktop by using the command `cd`.     
 
 ![image011](images/image011.png)       
