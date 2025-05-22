@@ -4,7 +4,7 @@ This project showcases a PowerShell script developed as part of my Active Direct
 
 
 ## Script File
-[View the NewADUser.ps1 script](./NewADUser.ps1)
+[📄 View the NewADUser.ps1 script](./NewADUser.ps1)
 
 
 ## Purpose
