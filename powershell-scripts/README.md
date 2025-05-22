@@ -63,9 +63,9 @@ while (Get-ADUser -Filter {SamAccountName -eq $Username}) {
 ```
 
 
-## Additional Commands and Notes
+## Notes and Processes
 
-Ran the script for the first time and I received an error because I was not in the correct directory. I changed my current directory to Desktop by using the command `cd`.     
+Ran the base script for the first time and I received an error because I was not in the correct directory. I changed my current directory to Desktop by using the command `cd`.     
 
 ![image011](images/image011.png)       
 
@@ -92,5 +92,8 @@ User was successfully added to the `HRConfidential` GPO and the other general us
 
 ![image023](images/image023.png) ![image025](images/image025.png)     
 
+Next I wanted to make sure that the admin could review the information they inputted and confirm that it is correct before continuing with potentially incorrect information. I wanted the script to ask the user if the information was correct, and if it wasn't, provide a way to exit without entering incorrect information to AD. Here's the bit of the script that I changed and an example on a new user:      
+
+![image027](images/image027.png) ![image029](images/image029.png)     
 
 **Change username in AD:** `Set-ADUser -Identity oldusername -SamAccountName newusername`     
