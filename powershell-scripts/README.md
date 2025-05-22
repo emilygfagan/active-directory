@@ -69,4 +69,19 @@ Ran the script for the first time and I received an error because I was not in t
 
 ![image011](images/image011.png)       
 
+Added my first user with my script, Muffin Potts `mpotts` in Sales. I went to check my AD Users and Computers to see if Muffin was added successfully.     
+
+![image013](images/image013.png)      
+
+This is when I noticed that the Description would be empty on all my users if I didn't add something to my script. I decided to update the code to include a description - half automated with the date and "added via script" and half with the user's job title for clarity. I added this block of code:
+
+```powershell
+# Prompt for input
+$JobTitle = Read-Host "Enter the user's job title"
+
+# Build description
+$Today = Get-Date -Format 'yyyy-MM-dd'
+$Description = "$JobTitle - added via script on $Today"
+```
+
 **Change username in AD:** `Set-ADUser -Identity oldusername -SamAccountName newusername`     
