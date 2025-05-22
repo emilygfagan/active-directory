@@ -42,7 +42,7 @@ do {
     # Set temporary password
     $Password = Read-Host "Enter a temporary password" -AsSecureString
 
-    # OU path — change as needed for your domain
+    # OU path
     $OU = "OU=Users,OU=$Department,OU=Headquarters,DC=fagan,DC=local"
 
     # Build description
