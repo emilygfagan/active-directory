@@ -5,9 +5,10 @@ This lab environment was created as a portfolio piece to showcase technical skil
 
 ## Table of Contents
 [Objectives](#objectives)     
+[Part 2: PowerShell Automation](#part-2-powershell-automation)
 [Lessons Learned & Skills Demonstrated](#lessons-learned--skills-demonstrated)     
 [Technologies Used](#technologies-used)     
-[Project Goals](#project-goals)     
+[Part 1: Active Directory Lab Setup](#part-1-active-directory-lab-setup)     
 [Domain Setup](#domain-setup)     
 [Windows 10 Client Setup](#windows-10-client-setup)     
 [Print Server Setup](#print-server-setup)     
