@@ -1,6 +1,8 @@
 # PowerShell Automation for Active Directory User Management
 
-This project showcases a PowerShell script developed as part of my Active Directory lab environment. It automates the creation of user accounts in a domain, including user prompts, validation, group assignments, and organizational unit (OU) placement. This script was designed to be both educational and practical, reflecting real-world administrative tasks.
+This project showcases a PowerShell script developed as part of my Active Directory lab environment. It automates the creation of user accounts in a domain, including user prompts, validation, group assignments, and organizational unit (OU) placement. This script was designed to be both educational and practical, reflecting real-world administrative tasks.     
+
+[View the script](powershell-scripts/NewADUser.ps1)      
 
 
 ## Purpose
