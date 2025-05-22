@@ -102,6 +102,14 @@ I made small improvements to my script to prevent case mismatching. I did this b
 
 I also wanted the script to ensure that each username it generates is unique. For example, if there were two users like Bill Smith and Bob Smith, both would initially generate the same username (e.g., `bsmith`). To handle this, I added a `while` loop that checks Active Directory for existing usernames and, if a conflict is found, automatically appends a number (e.g., `bsmith2`, `bsmith3`, etc.) until a unique username is created.     
 
-![image]
+![image036](images/image036.gif)     
 
-**Change username in AD:** `Set-ADUser -Identity oldusername -SamAccountName newusername`     
+I accidentally ended up assigning one of my `esmith` users as just the username of `2` because I didn't add the increment properly in the code, so I learned how to change the usernames in PowerShell: `Set-ADUser -Identity oldusername -SamAccountName newusername` and fixed `Eloise Smith`'s username to `esmith2`.     
+
+The last thing I did was wrap my entire user-creation script in a `do {...} while` loop so that it keeps running until the admin says to stop. I added a question at the end to ask the admin if they wanted to add another user or if they wanted to quit.
+
+```powershell
+ # Ask if you want to create another
+
+    $Repeat = (Read-Host "Would you like to add another user? (Y/N)").ToUpper()
+```
