@@ -47,6 +47,7 @@ To automate the user creation process in an Active Directory environment using P
 - Purpose: Track when and why the user was created
 
 ### Username Check
+Ensures no duplicate usernames exist.
 ```powershell
 $BaseUsername = ($FirstName.Substring(0,1) + $LastName).ToLower()
 $Username = $BaseUsername
@@ -55,4 +56,13 @@ while (Get-ADUser -Filter {SamAccountName -eq $Username}) {
     $i++
     $Username = "$BaseUsername$i"
 }
-```powershell
+```
+
+
+## Additional Commands and Notes
+
+**Check current directory:** `pwd`     
+
+**Change directory:** `cd`     
+
+**Change username in AD:** `Set-ADUser -Identity oldusername -SamAccountName newusername`     
