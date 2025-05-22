@@ -84,4 +84,13 @@ $Today = Get-Date -Format 'yyyy-MM-dd'
 $Description = "$JobTitle - added via script on $Today"
 ```
 
+I decided to try adding another user into HR so that I could see if the user was successfully added to the `HRConfidential` GPO.
+
+![image021](images/image021.png)     
+
+User was successfully added to the `HRConfidential` GPO and the other general user GPOs, `AllEmployees` and `Remote Desktop Users`.
+
+![image023](images/image023.png) ![image025](images/image025.png)     
+
+
 **Change username in AD:** `Set-ADUser -Identity oldusername -SamAccountName newusername`     
