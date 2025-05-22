@@ -65,8 +65,8 @@ while (Get-ADUser -Filter {SamAccountName -eq $Username}) {
 
 ## Additional Commands and Notes
 
-**Check current directory:** `pwd`     
+Ran the script for the first time and I received an error because I was not in the correct directory. I changed my current directory to Desktop by using the command `cd`.     
 
-**Change directory:** `cd`     
+![image011](images/image011)       
 
 **Change username in AD:** `Set-ADUser -Identity oldusername -SamAccountName newusername`     
