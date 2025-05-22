@@ -11,6 +11,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 [Technologies Used](#technologies-used)      
 
 [Part 2: PowerShell Automation](#part-2-powershell-automation)      
+
 [Part 1: Active Directory Lab Setup](#part-1-active-directory-lab-setup)     
         
 [Domain Setup](#domain-setup)     
