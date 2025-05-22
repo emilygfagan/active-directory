@@ -39,8 +39,8 @@ To automate the user creation process in an Active Directory environment using P
 5. The account is created and added to:
    `AllEmployees`
    `Remote Desktop Users`
-    if HR - `HRConfidential
-    if IT - `ITAdmins`, `Administrators`
+    if HR - `HRConfidential`     
+    if IT - `ITAdmins`, `Administrators`     
 6. The admin is prompted to add another user or exit
 
 
