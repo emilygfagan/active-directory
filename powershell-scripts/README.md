@@ -36,11 +36,11 @@ To automate the user creation process in an Active Directory environment using P
 2. Enter the user's first name, last name, department, and job title
 3. Confirm the info is correct
 4. A username is generated, checked for duplicates, and modified if needed
-5. The account is created and added to:
-   `AllEmployees`
-   `Remote Desktop Users`
-    if HR - `HRConfidential`     
-    if IT - `ITAdmins`, `Administrators`     
+5. The account is created and added to:      
+   `AllEmployees`      
+   `Remote Desktop Users`     
+    if HR - `HRConfidential`      
+    if IT - `ITAdmins`, `Administrators`      
 6. The admin is prompted to add another user or exit
 
 
