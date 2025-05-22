@@ -5,10 +5,11 @@ This lab environment was created as a portfolio piece to showcase technical skil
 
 ## Table of Contents
 [Objectives](#objectives)     
-[Part 2: PowerShell Automation](#part-2-powershell-automation)         
 [Lessons Learned & Skills Demonstrated](#lessons-learned--skills-demonstrated)          
-[Technologies Used](#technologies-used)     
+[Technologies Used](#technologies-used)      
+[Part 2: PowerShell Automation](#part-2-powershell-automation)      
 [Part 1: Active Directory Lab Setup](#part-1-active-directory-lab-setup)     
+        
 [Domain Setup](#domain-setup)     
 [Windows 10 Client Setup](#windows-10-client-setup)     
 [Print Server Setup](#print-server-setup)     
@@ -71,7 +72,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 
 
 
-## Project Goals
+## Part 1: Active Directory Lab Setup
 
 This project was created to:
 
@@ -79,6 +80,19 @@ This project was created to:
 - Practice administering and troubleshooting Windows-based networks
 - Demonstrate readiness for roles in IT support, help desk, or systems administration
 - Serve as a strong portfolio project for job interviews and internships
+
+
+
+## Part 2: PowerShell Automation    
+After building the Active Directory lab environment, I expanded the project by scripting the user creation process with PowerShell.
+
+This script automates:
+- Collecting user info via prompts
+- Generating unique usernames
+- Creating users in the correct OU
+- Adding users to department-specific security groups
+
+📂[View the PowerShell script and documentation](./powershell-scripts/README.md)     
 
 
 
