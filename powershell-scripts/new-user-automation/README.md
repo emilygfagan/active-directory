@@ -105,7 +105,7 @@ Write-Host "User $DisplayName ($Username) created successfully in $Department OU
 
 Ran the base script for the first time and I received an error because I was not in the correct directory. I changed my current directory to Desktop by using the command `cd`.     
 
-![image011](./powershell-scripts/images/image011.png)       
+![image011](powershell-scripts/images/image011.png)       
 
 Added my first user with my script, Muffin Potts `mpotts` in Sales. I went to check my AD Users and Computers to see if Muffin was added successfully.     
 
