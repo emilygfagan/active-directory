@@ -12,7 +12,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 
 [Part 3: PowerShell Automation - Renaming Users](#part-3-powershell-automation---renaming-users)
 
-[Part 2: PowerShell Automation](#part-2-powershell-automation)      
+[Part 2: PowerShell Automation](#part-2-powershell-automation---user-creation)      
 
 [Part 1: Active Directory Lab Setup](#part-1-active-directory-lab-setup)     
         
@@ -92,7 +92,7 @@ Automates the process of renaming Active Directory user accounts in response to 
 📂[View the PowerShell script and documentation](./powershell-scripts/rename-user/README.md)     
 
 
-## Part 2: PowerShell Automation    
+## Part 2: PowerShell Automation - User Creation    
 After building the Active Directory lab environment, I expanded the project by scripting the user creation process with PowerShell.
 
 This script automates:
