@@ -13,7 +13,7 @@ This tool is designed to reflect real-world IT support tasks, where consistent a
 
 - Prompts for the user’s current username and new first and last names.
 - Updates the `Name`, `DisplayName`, `GivenName`, and `Surname` fields in Active Directory.
-- Renames the `sAMAccountName` and `UserPrincipalName` to match the new name.
+- Renames the `SamAccountName` and `UserPrincipalName` to match the new name.
 - Automatically generates the new username based on the updated first and last names.
 - Logs success or error messages for administrator awareness.
 
