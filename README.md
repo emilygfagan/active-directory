@@ -10,6 +10,8 @@ This lab environment was created as a portfolio piece to showcase technical skil
 
 [Technologies Used](#technologies-used)      
 
+[Part 3: PowerShell Automation - Renaming Users](#part-3-powershell-automation---renaming-users)
+
 [Part 2: PowerShell Automation](#part-2-powershell-automation)      
 
 [Part 1: Active Directory Lab Setup](#part-1-active-directory-lab-setup)     
@@ -82,6 +84,12 @@ This lab environment was created as a portfolio piece to showcase technical skil
 - DNS and DHCP services (simulated lab environment)
 - PowerShell and Command Prompt for administrative tasks
 
+
+
+## Part 3: Powershell Automation - Renaming Users
+Automates the process of renaming Active Directory user accounts in response to name changes -- such as after marriages or divorce. Designed to reflect real-world IT support tasks, where consistent and accurate user records are essential for both user experience and security.     
+
+📂[View the PowerShell script and documentation]
 
 
 ## Part 2: PowerShell Automation    
