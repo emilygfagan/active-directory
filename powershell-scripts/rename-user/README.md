@@ -100,3 +100,8 @@ Get-ADUser -Filter { SamAccountName -eq "jcrouch" } | Select Name, SamAccountNam
 
 Nothing was returned, so this told me my code was incorrect.       
 
+I rewrote the script so that in each step it would tell me what failed. When I retried the script trying to change `esmith`'s name to Emily Gregory, it returned some hints as to why it was not working:       
+
+![image2]     
+
+
