@@ -6,7 +6,7 @@ This tool is designed to reflect real-world IT support tasks, where consistent a
 
 
 ## Script File
-📄[View the final RenameADUser.ps1 file]
+📄[View the final RenameADUser.ps1 file](./RenameADUser.ps1)     
 
 
 ## Features
@@ -89,7 +89,7 @@ try {
 
 I attempted to change user `jjackson`'s name to Janet Crouch. When I ran the script it appeared to be working, and in Active Directory Users and Computers, her common name in the HR group was showing up as `Janet Crouch`, but when I navigated to `Janet Crouch Properties`, it still showed that her name was `Janet Jackson`.      
 
-![image1]      
+![image1](images/image1.png)      
 
 To confirm that Janet's name was still incorrect in the system, I ran the following script to check if there was a username matching `jcrouch`. This would also tell me if the script didn't work because there was already a username `jcrouch` in the system.      
 
@@ -102,7 +102,7 @@ Nothing was returned, so this told me my code was incorrect.
 
 I rewrote the script so that in each step it would tell me what failed. When I retried the script trying to change `esmith`'s name to Emily Gregory, it returned some hints as to why it was not working:       
 
-![image2]     
+![image2](images/image2.png)     
 
 
 The script was only changing the `DisplayName` because it works sequentially, and PowerShell does not automatically refresh objects. So when the program was trying to change Emily Smith to Emily Gregory:     
@@ -148,6 +148,6 @@ This is where everything is updated.
 
 I ran the debugged version of the code without any errors and successfully changed the name of Janet Jackson to Janet Crouch!      
 
-![image3]     
+![image3](images/image3.png) ![image4](images/image4.png)     
 
 This project is still in progress.
