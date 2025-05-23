@@ -105,3 +105,49 @@ I rewrote the script so that in each step it would tell me what failed. When I r
 ![image2]     
 
 
+The script was only changing the `DisplayName` because it works sequentially, and PowerShell does not automatically refresh objects. So when the program was trying to change Emily Smith to Emily Gregory:     
+
+```powershell
+try {
+    Rename-ADObject -Identity $user.DistinguishedName -NewName $newDisplayName
+
+    Set-ADUser -Identity $user.DistinguishedName `
+        -GivenName $NewFirstName `
+        -Surname $NewLastName `
+        -DisplayName $newDisplayName `
+        -SamAccountName $newSamAccountName `
+        -UserPrincipalName $newUserPrincipalName
+```
+
+It was trying to update an object using the old `DistinguishedName`: `CN=Emily Smith,OU=Employees,DC=fagan,DC=local` which no longer existed. 
+
+I solved this by refreshing the `$user` object after changing the display name. Here's a sample:      
+
+```powershell
+ # Rename AD object
+    Rename-ADObject -Identity $user.DistinguishedName -NewName $newDisplayName
+```
+This is where I rename the Active Directory object - where I change the `Common Name (CN)` part of the `Distinguished Name`. In Active Directory, changing the `CN` changes the location of the object in the tree. It's like changing the path name in a filesystem. The `Distinguished Name` is the like the file path in a filesystem. So I had to make sure that the script is calling the right DistinguishedName, or else it won't be able to update the rest of the attributes. This is why there was an error.
+
+```powershell
+    # Refresh user object with updated DistinguishedName
+    $user = Get-ADUser -Identity $oldSamAccountName -Properties DisplayName, SamAccountName, UserPrincipalName, GivenName, Surname
+```
+This part grabs the fresh version of the user from AD using their old username (oldSamAccountName), so that everything is ready to be updated.     
+
+```powershell
+    # Update user attributes
+    Set-ADUser -Identity $user.DistinguishedName `
+        -GivenName $NewFirstName `
+        -Surname $NewLastName `
+        -DisplayName $newDisplayName `
+        -SamAccountName $newSamAccountName `
+        -UserPrincipalName $newUserPrincipalName
+```
+This is where everything is updated.     
+
+I ran the debugged version of the code without any errors and successfully changed the name of Janet Jackson to Janet Crouch!      
+
+![image3]     
+
+This project is still in progress.
