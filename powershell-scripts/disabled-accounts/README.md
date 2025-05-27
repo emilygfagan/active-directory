@@ -81,3 +81,7 @@ The script was successful - Fred was moved to the `DisabledAccounts` OU, and his
 ![image7](images/Usersffagin.png)
 
 However, when I looked back at the logs, I noticed an error.      
+
+![image8](images/TerminationError.png)      
+
+The logs stated that Fred was removed from 0 groups. 
