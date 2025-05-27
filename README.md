@@ -102,7 +102,7 @@ This script automates:
 - Creating users in the correct OU
 - Adding users to department-specific security groups
 
-📂[View the PowerShell script and documentation](./powershell-scripts/new-user-automation/README.md)     
+📂[View the PowerShell script and documentation](https://github.com/emilygfagan/active-directory/tree/main/powershell-scripts/new-user-automation)     
 
 
 
