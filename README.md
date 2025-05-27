@@ -89,7 +89,7 @@ This lab environment was created as a portfolio piece to showcase technical skil
 ## Part 3: Powershell Automation - Renaming Users
 Automates the process of renaming Active Directory user accounts in response to name changes -- such as after marriages or divorce. Designed to reflect real-world IT support tasks, where consistent and accurate user records are essential for both user experience and security.     
 
-📂[View the PowerShell script and documentation](./powershell-scripts/rename-user/README.md)     
+📂[View the PowerShell script and documentation](https://github.com/emilygfagan/active-directory/tree/main/powershell-scripts/rename-user)     
 
 
 
