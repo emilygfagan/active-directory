@@ -17,4 +17,4 @@ My script automates the following:
 
 I created a dedicated Termination OU called `DisabledAccounts` that is kept outside normal active user OUs.     
 
-![image1](images/image1.png)     
+![image1](images/DisabledAccounts.png)     
