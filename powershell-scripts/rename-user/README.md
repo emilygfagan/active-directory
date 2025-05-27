@@ -29,7 +29,12 @@ This tool is designed to reflect real-world IT support tasks, where consistent a
 
 ## Notes and Processes
 
-Here's the base script that I wrote just to see if there were any bugs:      
+This PowerShell script was developed to automate renaming a user in Active Directory. The goal was to change a user's name (e.g., due to marriage or legal name change) and update the relevant attributes such as `DisplayName`, `SamAccountName`, and `UserPrincipalName`, all while ensuring that existing usernames don't conflict.     
+
+
+### Initial Script
+
+Below is the base script I wrote to test for any issues:      
 ```powershell
 # RenameADUser.ps1
 
@@ -87,53 +92,48 @@ try {
 }
 ```
 
-I attempted to change user `jjackson`'s name to Janet Crouch. When I ran the script it appeared to be working, and in Active Directory Users and Computers, her common name in the HR group was showing up as `Janet Crouch`, but when I navigated to `Janet Crouch Properties`, it still showed that her name was `Janet Jackson`.      
+
+### Troubleshooring and Debugging
+
+When testing the script with the user `jjackson`, I attempted to rename her to **Janet Crouch**. While the Display Name in Active Directory appeared to update, the `Properties` window still listed her name as **Janet Jackson**.    
 
 ![image1](images/image1.png)      
 
-To confirm that Janet's name was still incorrect in the system, I ran the following script to check if there was a username matching `jcrouch`. This would also tell me if the script didn't work because there was already a username `jcrouch` in the system.      
 
+To determine whether the script had successfully created a new user object or if a conflict existed, I used:       
 
 ```powershell
 Get-ADUser -Filter { SamAccountName -eq "jcrouch" } | Select Name, SamAccountName
-```
+```     
 
-Nothing was returned, so this told me my code was incorrect.       
+The query returned nothing—indicating the script didn’t update the `SamAccountName` or `UPN` as expected.
 
-I rewrote the script so that in each step it would tell me what failed. When I retried the script trying to change `esmith`'s name to Emily Gregory, it returned some hints as to why it was not working:       
+I enhanced the script with additional feedback and error-checking. When running it again for `esmith` (trying to rename her to Emily Gregory), I received errors pointing to the cause:       
 
 ![image2](images/image2.png)     
 
 
-The script was only changing the `DisplayName` because it works sequentially, and PowerShell does not automatically refresh objects. So when the program was trying to change Emily Smith to Emily Gregory:     
+The problem was due to PowerShell using a stale `DistinguishedName`. After renaming the AD object (which changes the `CN` portion of the `DistinguishedName`), the script attempted to update the user using the _old_ path:     
 
 ```powershell
 try {
     Rename-ADObject -Identity $user.DistinguishedName -NewName $newDisplayName
+```     
 
-    Set-ADUser -Identity $user.DistinguishedName `
-        -GivenName $NewFirstName `
-        -Surname $NewLastName `
-        -DisplayName $newDisplayName `
-        -SamAccountName $newSamAccountName `
-        -UserPrincipalName $newUserPrincipalName
-```
+Since the `CN` changed from `Emily Smith` to `Emily Gregory`, the original `DistinguishedName` was no longer valid. This is similar to changing the path of a file—once it moves, the old path no longer works.     
 
-It was trying to update an object using the old `DistinguishedName`: `CN=Emily Smith,OU=Employees,DC=fagan,DC=local` which no longer existed. 
 
-I solved this by refreshing the `$user` object after changing the display name. Here's a sample:      
+### Solution
 
-```powershell
- # Rename AD object
-    Rename-ADObject -Identity $user.DistinguishedName -NewName $newDisplayName
-```
-This is where I rename the Active Directory object - where I change the `Common Name (CN)` part of the `Distinguished Name`. In Active Directory, changing the `CN` changes the location of the object in the tree. It's like changing the path name in a filesystem. The `Distinguished Name` is the like the file path in a filesystem. So I had to make sure that the script is calling the right DistinguishedName, or else it won't be able to update the rest of the attributes. This is why there was an error.
+To fix the issue, I refreshed the `$user` object after renaming:        
 
 ```powershell
     # Refresh user object with updated DistinguishedName
     $user = Get-ADUser -Identity $oldSamAccountName -Properties DisplayName, SamAccountName, UserPrincipalName, GivenName, Surname
-```
-This part grabs the fresh version of the user from AD using their old username (oldSamAccountName), so that everything is ready to be updated.     
+```     
+This ensured all updates used the new, correct `DistinguishedName`.      
+
+Then I proceeded with the attribute updates:      
 
 ```powershell
     # Update user attributes
@@ -143,11 +143,9 @@ This part grabs the fresh version of the user from AD using their old username (
         -DisplayName $newDisplayName `
         -SamAccountName $newSamAccountName `
         -UserPrincipalName $newUserPrincipalName
-```
-This is where everything is updated.     
+```       
 
-I ran the debugged version of the code without any errors and successfully changed the name of Janet Jackson to Janet Crouch!      
+After this fix, I successfully renamed Janet Jackson to Janet Crouch without any errors.          
 
-![image3](images/image3.png) ![image4](images/image4.png)     
-
-This project is still in progress.
+![image3](images/image3.png)      
+![image4](images/image4.png)         
