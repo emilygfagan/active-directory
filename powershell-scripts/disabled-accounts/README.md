@@ -43,6 +43,13 @@ Set-ADAccountPassword -Identity $user -Reset -NewPassword (ConvertTo-SecureStrin
 
 For testing my script, I decided to test Chad Lee's account, `clee`. I received an error in the code, but it said that it had been run successfully:     
 
-![image3](images/cleeDisable.png)     
+![image3](images/cleeDisable.png)       
 
-I decided to investigate to see what the problem could be.      
+
+After investigating my Users and Computers menu, I saw that Chad Lee had been moved into the `DisabledAccounts` OU, but his description was not updated:     
+
+![image4](images/cleeProperties.png)     
+
+The logging had also worked, and the TerminationLogs folder appeared on my desktop:     
+
+![image5](images/TerminatedUsers.png)     
