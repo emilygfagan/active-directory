@@ -76,12 +76,15 @@ I then tried the script again, this time with Fred Fagin (ffagin).
 
 ![image6](images/ffaginDisable.png)
 
+
 The script was successful - Fred was moved to the `DisabledAccounts` OU, and his description was updated.
 
 ![image7](images/Usersffagin.png)
 
-However, when I looked back at the logs, I noticed an error.      
+
+However, when I looked back at the logs, I noticed an error:         
 
 ![image8](images/TerminationError.png)      
+
 
 The logs stated that Fred was removed from 0 groups. 
