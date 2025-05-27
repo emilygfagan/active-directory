@@ -92,10 +92,11 @@ Automates the process of renaming Active Directory user accounts in response to 
 📂[View the PowerShell script and documentation](./powershell-scripts/rename-user/README.md)     
 
 
-## Part 2: PowerShell Automation - User Creation    
-After building the Active Directory lab environment, I expanded the project by scripting the user creation process with PowerShell.
 
-This script automates:
+## Part 2: PowerShell Automation - User Creation    
+After building the Active Directory lab environment, I expanded the project by scripting the user creation process with PowerShell.     
+
+This script automates:     
 - Collecting user info via prompts
 - Generating unique usernames
 - Creating users in the correct OU
