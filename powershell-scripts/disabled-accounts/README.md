@@ -4,6 +4,11 @@ As an extension of my Active Directory lab, I developed a PowerShell script to a
 
 
 
+## Script File
+📄[View the DisableUser.ps1 script](./DisableUser.ps1)     
+
+
+
 ## Project Objectives
 
 The script performs the following automated tasks:
@@ -39,9 +44,9 @@ These settings were applied to the `Domain Users` group. Since the GPO is only l
 
 ## Script Walkthrough and Testing
 
-The script begins by prompting the administrator for a username, then retrieves and displays key user attributes (DisplayName, DistinguishedName, Department, Group Memberships) for confirmation.
+The script begins by prompting the administrator for a username, then retrieves and displays key user attributes (DisplayName, DistinguishedName, Department, Group Memberships) for confirmation.     
 
-Once confirmed, the script:
+Once confirmed, the script:     
 - Removes group memberships
 - Disables the account
 - Moves the user to `DisabledAccounts`
@@ -50,7 +55,7 @@ Once confirmed, the script:
 - Archives the user's home directory
 - Logs all actions and removed groups to a `.csv` on the desktop
 
-Here’s the optional production-ready password reset alternative:  
+Here’s the optional production-ready password reset alternative:       
 
 ```powershell
 # Generate random secured password
@@ -59,29 +64,33 @@ $newPassword = [System.Web.Security.Membership]::GeneratePassword(12, 2)
 Set-ADAccountPassword -Identity $user -Reset -NewPassword (ConvertTo-SecureString -AsPlainText $newPassword -Force)
 ```
 
-For testing my script, I decided to test Chad Lee's account, `clee`. I received an error in the code, but it said that it had been run successfully:     
+
+
+## Script Testing Results
+
+**First Test:** Chad Lee (`clee`)     
+
+- Account was moved to the correct OU     
 
 ![image3](images/cleeDisable.png)       
 
 
-After investigating my Users and Computers menu, I saw that Chad Lee had been moved into the `DisabledAccounts` OU, but his description was not updated:     
-
-![image4](images/cleeProperties.png)     
-
-The logging had also worked, and the TerminationLogs folder appeared on my desktop:     
+- Log entry was created successfully
 
 ![image5](images/TerminatedUsers.png)     
 
 
-The only thing that did not work was adding the description in Active Directory for the deleted user date. I made the same mistake in my previous script, where I didn't refresh the `$user` object after moving it to the `DisabledAccounts` OU. The program was trying to find Chad's old `DistinguishedName`, which does not exist anymore.     
+**Issue:** AD description was not updated     
 
-I updated this part of the script:        
+![image4](images/cleeProperties.png)     
+
+
+**Cause:** I forgot to refresh the `$user` object after moving it to a new OU. The script was still referencing the user’s _old DistinguishedName_.         
+
+
+**Fix:**     
 
 ```powershell
-# Move user to DisabledAccounts OU
-$targetOU = "OU=DisabledAccounts,DC=fagan,DC=local"
-Move-ADObject -Identity $user.DistinguishedName -TargetPath $targetOU
-
 #Refresh user object after move
 $user = Get-ADUser -Identity $username
 
@@ -90,35 +99,35 @@ $date = Get-Date -Format "yyyy-MM-dd"
 Set-ADUser -Identity $user -Description "Disabled account on $date"
 ```
 
-I then tried the script again, this time with Fred Fagin (ffagin).         
-
-![image6](images/ffaginDisable.png)
 
 
-The script was successful - Fred was moved to the `DisabledAccounts` OU, and his description was updated.
+**Second Test:** Fred Fagin (`ffagin`)      
 
-![image7](images/Usersffagin.png)
+- Description was correctly updated after refreshing the user object     
+
+![image7](images/Usersffagin.png)     
 
 
-However, when I looked back at the logs, I noticed an error:         
+**Issue:** The log reported that 0 groups were removed.     
 
 ![image8](images/TerminationError.png)      
 
 
-The logs stated that Fred was removed from 0 groups, which means I needed to update the script to count the groups _before_ removing the user from them. And I also decided that I wanted to change the script to not just count the groups, but to list them in the CSV log as well.     
+**Cause:** I was counting `$user.MemberOf.Count` _after_ the groups had already been removed.     
 
-So, I replaced this part of the code:     
+**Final Improvement: Logging Group Names**          
 
+To make the logging more accurate and informative, I changed the script to store the original group names _before_ removal and list them in the CSV:     
+
+**Before:**     
 ```powershell
 # Remove from all groups
 $user.MemberOf | ForEach-Object {
     Remove-ADGroupMember -Identity $_ -Members $user -Confirm:$false
 }
-```
-
-
-With this:     
-
+```     
+  
+**After:**     
 ```powershell
 # Get original group names before removal
 $originalGroupDNs = $user.MemberOf
@@ -129,14 +138,25 @@ foreach ($groupDN in $originalGroupDNs) {
     Remove-ADGroupMember -Identity $groupName -Members $user -Confirm:$false
     $removedGroups += $groupName
 }
-```
+```     
 
 
-I tried the code again with a new user, Connie Cold (`ccold`).     
 
-![image9](images/ccold.png)      
+**Final Test:** Connie Cold (`ccold`)     
+
+Everything worked successfully:     
+- Group names were listed in the log
+- AD Description was updated
+- Home directory archive logic executed
+- Log file confirmed successful operation     
+
+![image10](images/TermLogccold.png)        
 
 
-I checked the logs to see if she was logged correctly, and she was!     
+## Summary 
 
-![image10](images/TermLogccold.png)     
+This project demonstrates how PowerShell can be used to automate secure, auditable user termination processes in Active Directory. It reflects real-world IT and sysadmin practices, inlcuding:     
+- Least priviledge enforcement
+- OU-based access segregation
+- Secure offboarding
+- Event logging
