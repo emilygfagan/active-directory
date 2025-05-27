@@ -53,3 +53,22 @@ After investigating my Users and Computers menu, I saw that Chad Lee had been mo
 The logging had also worked, and the TerminationLogs folder appeared on my desktop:     
 
 ![image5](images/TerminatedUsers.png)     
+
+
+The only thing that did not work was adding the description in Active Directory for the deleted user date. I made the same mistake in my previous script, where I didn't refresh the `$user` object after moving it to the `DisabledAccounts` OU. The program was trying to find Chad's old `DistinguishedName`, which does not exist anymore.     
+
+I updated this part of the script:        
+
+```powershell
+# Move user to DisabledAccounts OU
+$targetOU = "OU=DisabledAccounts,DC=fagan,DC=local"
+Move-ADObject -Identity $user.DistinguishedName -TargetPath $targetOU
+
+#Refresh user object after move
+$user = Get-ADUser -Identity $username
+
+# Update AD description with disable date
+$date = Get-Date -Format "yyyy-MM-dd"
+Set-ADUser -Identity $user -Description "Disabled account on $date"```
+
+
