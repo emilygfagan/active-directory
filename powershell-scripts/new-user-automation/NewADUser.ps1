@@ -42,7 +42,7 @@ do {
     # Set temporary password
     $Password = Read-Host "Enter a temporary password" -AsSecureString
 
-    # OU path
+    # OU path — change as needed for your domain
     $OU = "OU=Users,OU=$Department,OU=Headquarters,DC=fagan,DC=local"
 
     # Build description
@@ -52,10 +52,12 @@ do {
   
     # Create the user
     New-ADUser -Name $DisplayName `
+               -DisplayName "$FirstName $LastName" `
                -GivenName $FirstName `
                -Surname $LastName `
                -SamAccountName $Username `
                -UserPrincipalName $UPN `
+               -Department $Department `
                -Path $OU `
                -AccountPassword $Password `
                -Enabled $true `
