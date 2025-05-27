@@ -87,4 +87,6 @@ However, when I looked back at the logs, I noticed an error:
 ![image8](images/TerminationError.png)      
 
 
-The logs stated that Fred was removed from 0 groups. 
+The logs stated that Fred was removed from 0 groups, which means I needed to update the script to count the groups _before_ removing the user from them. And I also decided that I wanted to change the script to not just count the groups, but to list them in the CSV log as well.     
+
+
