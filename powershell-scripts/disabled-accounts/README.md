@@ -114,3 +114,7 @@ foreach ($groupDN in $originalGroupDNs) {
 ```
 
 
+I tried the code again with a new user, Connie Cold (`ccold`).     
+
+![image9](images/ccold.png)      
+
