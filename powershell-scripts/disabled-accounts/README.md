@@ -68,7 +68,7 @@ Set-ADAccountPassword -Identity $user -Reset -NewPassword (ConvertTo-SecureStrin
 
 ## Script Testing Results
 
-**First Test:** Chad Lee (`clee`)     
+### First Test: Chad Lee (`clee`)     
 
 - Account was moved to the correct OU     
 
@@ -101,7 +101,7 @@ Set-ADUser -Identity $user -Description "Disabled account on $date"
 
 
 
-**Second Test:** Fred Fagin (`ffagin`)      
+### Second Test: Fred Fagin (`ffagin`)      
 
 - Description was correctly updated after refreshing the user object     
 
@@ -115,7 +115,9 @@ Set-ADUser -Identity $user -Description "Disabled account on $date"
 
 **Cause:** I was counting `$user.MemberOf.Count` _after_ the groups had already been removed.     
 
-**Final Improvement: Logging Group Names**          
+
+
+### Final Improvement: Logging Group Names          
 
 To make the logging more accurate and informative, I changed the script to store the original group names _before_ removal and list them in the CSV:     
 
@@ -142,7 +144,7 @@ foreach ($groupDN in $originalGroupDNs) {
 
 
 
-**Final Test:** Connie Cold (`ccold`)     
+### Final Test: Connie Cold (`ccold`)     
 
 Everything worked successfully:     
 - Group names were listed in the log
@@ -151,6 +153,7 @@ Everything worked successfully:
 - Log file confirmed successful operation     
 
 ![image10](images/TermLogccold.png)        
+
 
 
 ## Summary 
