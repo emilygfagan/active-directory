@@ -43,6 +43,6 @@ Set-ADAccountPassword -Identity $user -Reset -NewPassword (ConvertTo-SecureStrin
 
 For testing my script, I decided to test Chad Lee's account, `clee`. I received an error in the code, but it said that it had been run successfully:     
 
-![image3](cleeDisable.png)     
+![image3](images/cleeDisable.png)     
 
 I decided to investigate to see what the problem could be.      
