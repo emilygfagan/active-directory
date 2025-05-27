@@ -89,4 +89,28 @@ However, when I looked back at the logs, I noticed an error:
 
 The logs stated that Fred was removed from 0 groups, which means I needed to update the script to count the groups _before_ removing the user from them. And I also decided that I wanted to change the script to not just count the groups, but to list them in the CSV log as well.     
 
+So, I replaced this part of the code:     
+
+```powershell
+# Remove from all groups
+$user.MemberOf | ForEach-Object {
+    Remove-ADGroupMember -Identity $_ -Members $user -Confirm:$false
+}
+```
+
+
+With this:     
+
+```powershell
+# Get original group names before removal
+$originalGroupDNs = $user.MemberOf
+$removedGroups = @()
+
+foreach ($groupDN in $originalGroupDNs) {
+    $groupName = (Get-ADGroup $groupDN).Name
+    Remove-ADGroupMember -Identity $groupName -Members $user -Confirm:$false
+    $removedGroups += $groupName
+}
+```
+
 
