@@ -69,7 +69,8 @@ $user = Get-ADUser -Identity $username
 
 # Update AD description with disable date
 $date = Get-Date -Format "yyyy-MM-dd"
-Set-ADUser -Identity $user -Description "Disabled account on $date"```
+Set-ADUser -Identity $user -Description "Disabled account on $date"
+```
 
 I then tried the script again, this time with Fred Fagin (ffagin).         
 
