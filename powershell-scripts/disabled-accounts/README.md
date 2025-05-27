@@ -1,41 +1,59 @@
-# Disabling User Accounts Automation in PowerShell
+# PowerShell Automation: Disabling User Accounts in Active Directory
 
-My next idea for this Active Directory lab was to create an automation in PowerShell that will disable user accounts.      
-
-
-## Goals
-
-My script automates the following:
-1. Move user to a `DisabledAccounts` OU
-2. Disable the user account
-3. Remove all group memberships
-4. Move their home directory and archive data
-5. Reset critical properties
+As an extension of my Active Directory lab, I developed a PowerShell script to automate the user termination process. This reflects a real-world IT offboarding workflow that ensures security, maintains clean directory structure, and provides audit logging.     
 
 
-## Steps
 
-I created a dedicated Termination OU called `DisabledAccounts` that is kept outside normal active user OUs.     
+## Project Objectives
+
+The script performs the following automated tasks:
+1. Prompts the admin to select a user by username (SamAccountName)
+2. Displays user info for confirmation (Display Name, Department, Groups)
+3. Removes the user from all security groups
+4. Disables the account
+5. Moves the user to a dedicated `DisabledAccounts` OU
+6. Updates the AD description with the termination date
+7. Archives the user’s home directory (if applicable)
+8. Logs the action and removed groups to a `.csv` file on the desktop
+
+
+
+## OU and GPO Design
+
+I created a dedicated `DisabledAccounts` Organizational Unit (OU) to house terminated accounts. This OU is isolated from normal user OUs and can optionally have Group Policy Objects (GPOs) applied for extra security.      
 
 ![image1](images/DisabledAccounts.png)     
 
 
-For extra security, I wanted to make sure that my terminated users are unable to login locally and unable to login through Remote Desktop Services. In Group Policy Management Editor, I navigated to my `DisabledAccounts` OU and created a new GPO called `Disabled Accounts Lockdown`.      
+To add an additional layer of protection, I created a GPO called **Disabled Accounts Lockdown**, linked to the `DisabledAccounts` OU. It includes the following settings under:     
 
-I edited the GPO and navigated to `Computer Configuration > Windows Settings > Security Settings > Local Policies > User Rights Assignment`.      
-
-I enabled `Deny log on locally` and `Deny log on through Remote Desktop Services` for the group `Domain Users`. Adding this group will not affect the active users in other OUs unless they are in the `DisabledAccounts` OU.    
-      
+`Computer Configuration > Windows Settings > Security Settings > Local Policies > User Rights Assignment`     
+- Deny log on locally
+- Deny log on through Remote Desktop Services     
 
 ![image2](images/DenyLogin.png)     
 
+These settings were applied to the `Domain Users` group. Since the GPO is only linked to the `DisabledAccounts` OU, active users in other OUs remain unaffected.     
 
-I created a base code that prompts for username, returns the user information, confirms with the host whether they want to delete the account, removes group memberships, disables the user account and moves it to the `DisabledAccounts` OU, updates the AD description with the date moved, archives the home directory, and logs the entry to a csv file on the DC01 desktop.     
 
-For testing purposes, I made the password _Disabled123!_, but for best security practices in real-life scenarios, I would have written something like this:     
+
+## Script Walkthrough and Testing
+
+The script begins by prompting the administrator for a username, then retrieves and displays key user attributes (DisplayName, DistinguishedName, Department, Group Memberships) for confirmation.
+
+Once confirmed, the script:
+- Removes group memberships
+- Disables the account
+- Moves the user to `DisabledAccounts`
+- Resets the password (in testing, it's a known value: `Disabled123!`)
+- Updates the AD description to reflect the disable date
+- Archives the user's home directory
+- Logs all actions and removed groups to a `.csv` on the desktop
+
+Here’s the optional production-ready password reset alternative:  
 
 ```powershell
-# Generate random password (12 characters)
+# Generate random secured password
 Add-Type -AssemblyName System.Web
 $newPassword = [System.Web.Security.Membership]::GeneratePassword(12, 2)
 Set-ADAccountPassword -Identity $user -Reset -NewPassword (ConvertTo-SecureString -AsPlainText $newPassword -Force)
