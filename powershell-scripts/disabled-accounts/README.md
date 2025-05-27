@@ -118,3 +118,7 @@ I tried the code again with a new user, Connie Cold (`ccold`).
 
 ![image9](images/ccold.png)      
 
+
+I checked the logs to see if she was logged correctly, and she was!     
+
+![image10](images/TermLogccold.png)     
