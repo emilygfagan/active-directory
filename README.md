@@ -12,11 +12,9 @@ This lab environment was created as a portfolio piece to showcase technical skil
 
 [Technologies Used](#technologies-used)      
 
-[Part 3: PowerShell Automation - Renaming Users](#part-3-powershell-automation---renaming-users)
+[PowerShell Automation Toolkit](#powershell-automation-toolkit)      
 
-[Part 2: PowerShell Automation - User Creation](#part-2-powershell-automation---user-creation)      
-
-[Part 1: Active Directory Lab Setup](#part-1-active-directory-lab-setup)     
+[Active Directory Lab Setup](#active-directory-lab-setup)     
         
 [Domain Setup](#domain-setup)     
 
@@ -88,27 +86,15 @@ This lab environment was created as a portfolio piece to showcase technical skil
 
 
 
-## Part 3: Powershell Automation - Renaming Users
-Automates the process of renaming Active Directory user accounts in response to name changes -- such as after marriages or divorce. Designed to reflect real-world IT support tasks, where consistent and accurate user records are essential for both user experience and security.     
+## PowerShell Automation Toolkit    
 
-📂[View the PowerShell script and documentation](https://github.com/emilygfagan/active-directory/tree/main/powershell-scripts/rename-user)     
+As part of the Fagan Systems Active Directory lab, I created a companion project focused on PowerShell scripting to automate routine administrative tasks. This extension improves efficiency, reduces human error, and explores real-world AD automation techniques.       
 
-
-
-## Part 2: PowerShell Automation - User Creation    
-After building the Active Directory lab environment, I expanded the project by scripting the user creation process with PowerShell.     
-
-This script automates:     
-- Collecting user info via prompts
-- Generating unique usernames
-- Creating users in the correct OU
-- Adding users to department-specific security groups
-
-📂[View the PowerShell script and documentation](https://github.com/emilygfagan/active-directory/tree/main/powershell-scripts/new-user-automation)     
+**View the scripts here →** [`PowerShell Scripts Repository`](https://github.com/emilygfagan/active-directory/blob/main/powershell-scripts/README.md)      
 
 
 
-## Part 1: Active Directory Lab Setup
+## Active Directory Lab Setup
 
 This project was created to:
 
